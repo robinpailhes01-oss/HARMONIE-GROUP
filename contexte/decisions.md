@@ -6,6 +6,10 @@ Les décisions propres à une activité restent dans son dépôt (`luma-context/
 
 | Date | Décision | Raison |
 |---|---|---|
+| 2026-11-22 | Style : en session de travail, pas à pas (fait / pourquoi / à toi) ; sur Telegram, court avec boutons OK / Non, détaillé si Robin le demande | Apprendre en session, aller vite sur le téléphone |
+| 2026-11-22 | Pas de prénom pour les nouveaux agents : « le manager », « le comptable » | Le rôle se lit dans le nom |
+| 2026-11-22 | Messages spontanés du manager : seulement les urgences (bug sur un projet client, prospect très chaud), **y compris le week-end** pour ces urgences ; tout le reste attend | Ne rater aucune urgence, sans être dérangé pour le reste |
+| 2026-11-22 | `voix-robin.md` devient commun au groupe et vit dans `harmonie-group/contexte/`. La voix de Léa reste à part, dans la fiche de marque d'Harmonie Yacht. Le retrait de la copie de Luma passe par un relais (on ne modifie pas `robin-lp`) | La façon d'écrire de Robin sert aux deux activités |
 | 2026-11-22 | Dépense perso sur Qonto : en cas de doute, le comptable demande sur Telegram (boutons Luma / Harmonie Yacht / Perso / 50-50) et retient la réponse pour ce marchand | Robin ne valide que les cas douteux ; le comptable apprend au fil du temps |
 | 2026-11-22 | Revolut et DeBlock sont des comptes **perso uniquement** : ils alimentent l'onglet Perso, jamais la compta de l'entreprise | Garder le perso à part |
 | 2026-11-22 | Aucune dépense pub pour Harmonie Yacht pendant la fermeture ; un plafond sera fixé avant la reprise d'avril. Le plafond de Luma reste celui de `luma_pub_garde_fous` | Bateau fermé de début décembre à début avril |
