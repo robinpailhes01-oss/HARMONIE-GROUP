@@ -5,7 +5,7 @@
 ## Où on en est
 - **Étape 1 (inventaire)** : faite le 22/11, en lecture seule. Résultat résumé plus bas.
 - **Étape 2 (proposition)** : faite ; réponses de Robin le 22/11 (ci-dessous).
-- **Étape 3, PR 1 : la carapace** — en cours : connexion mot de passe + code, 4 onglets aux couleurs de chaque espace, clair/sombre, mobile, états vides. **Aucune donnée branchée.**
+- **Étape 3, PR 1 : la carapace** — en ligne sur harmoniegroup.vercel.app (projet Vercel `harmoniegroup`, créé par Robin le 22/11, branche `claude/vibrant-goodall-4hnpna`). Design verre v3 + connexion animée (mot de passe puis 6 cases de verre, d’après l’exemple « Glassy OTP »). **Aucune donnée branchée.**
 
 ## Décidé (Robin, 22/11/2026)
 | Sujet | Décision |
