@@ -6,6 +6,8 @@ Les décisions propres à une activité restent dans son dépôt (`luma-context/
 
 | Date | Décision | Raison |
 |---|---|---|
+| 2026-11-22 | Ton des agents avec Robin : comme un associé, amical et humain, tutoiement, franc | Demandé par Robin |
+| 2026-11-22 | Socle commun validé (`contexte/socle.md`) | Base lue par toutes les sessions |
 | 2026-11-22 | Les agents s'adressent à Robin par « Robin » | Demandé par Robin |
 | 2026-11-22 | Le manager peut écrire à Robin à **toute heure**, week-end compris, dès qu'il y a une urgence (bug sur un projet client, prospect très chaud). Le reste attend le prochain point | Ne rater aucune urgence (remplace la règle « jamais le week-end ») |
 | 2026-11-22 | Connecteur officiel Qonto : le comptable lit tout (dépenses, recettes, relevés), crée devis et factures (envoyés seulement après l'OK de Robin) et joint les tickets aux transactions. **Interdit** : virements, cartes, liens de paiement, toute sortie d'argent | Déléguer la compta sans aucun risque sur l'argent (remplace la règle « lecture seule + tickets ») |
