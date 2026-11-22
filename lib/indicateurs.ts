@@ -94,7 +94,7 @@ export function onglet(espace: Espace) {
 
 /** « 1er janv. – 31 déc. 2026 » : l'année civile en cours (décision de Robin du 22/11/2026). */
 export function libellePeriode(p: Indicateur["periode"], now = new Date()) {
-  if (p === "annee") return `1er janv. – 31 déc. ${now.getFullYear()}`;
+  if (p === "annee") return `1er janv. – 31 déc. ${new Intl.DateTimeFormat("fr-FR", { year: "numeric", timeZone: "Europe/Paris" }).format(now)}`;
   if (p === "30j") return "30 derniers jours";
   if (p === "jour") return "Dernier relevé";
   return null;

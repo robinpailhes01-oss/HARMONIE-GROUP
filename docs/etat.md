@@ -35,6 +35,8 @@
 6. `main` n'existe pas encore dans ce dépôt (il était vide) : OK de Robin nécessaire pour la créer et ouvrir la PR.
 7. Projet Vercel à créer, puis variables `HG_PASSWORD`, `HG_SESSION_SECRET`, `HG_TOTP_SECRET`, `HG_TOTP_ENROLL` (Production et Preview).
 
+8. Sécurité de la connexion à renforcer avant d'y brancher les données : limite d'essais par IP (pare-feu Vercel), refus d'un code TOTP déjà utilisé, `HG_TOTP_ENROLL` à retirer juste après le scan (tant qu'il vaut 1, le mot de passe seul montre le QR code). Couper toutes les sessions : changer `HG_SESSION_SECRET`.
+
 ## Reste à faire
 - PR 1 : Preview testée par Robin.
 - Ensuite : agent comptable, accès lecture seule (avec OK), branchement des chiffres un par un avec la requête montrée.

@@ -23,14 +23,8 @@ export default async function Connexion({ searchParams }: { searchParams: Promis
     <Cadre titre="Connexion">
       {manque.length > 0 ? (
         <div className="rounded-xl border border-filet bg-repere p-4 text-sm">
-          <p>Connexion impossible : il manque dans Vercel (Production et Preview) :</p>
-          <ul className="mt-2 list-disc pl-5 text-doux">
-            {manque.map((m) => (
-              <li key={String(m)}>
-                <code>{m}</code>
-              </li>
-            ))}
-          </ul>
+          {/* Les noms des variables manquantes ne sont pas montrés aux visiteurs : voir .env.example. */}
+          <p>La connexion n'est pas encore configurée.</p>
         </div>
       ) : (
         <form action="/api/connexion" method="post" className="space-y-4">
