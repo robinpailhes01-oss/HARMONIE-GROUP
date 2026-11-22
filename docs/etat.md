@@ -1,11 +1,15 @@
 # État d'Harmonie Group
 
-**Dernière mise à jour : 22/11/2026 — session HARMONIE GROUP**
+**Dernière mise à jour : 22/11/2026 (soir) — session HARMONIE GROUP**
 
 ## Où on en est
 - **Étape 1 (inventaire)** : faite le 22/11, en lecture seule. Résultat résumé plus bas.
 - **Étape 2 (proposition)** : faite ; réponses de Robin le 22/11 (ci-dessous).
 - **Étape 3, PR 1 : la carapace** — en ligne sur harmoniegroup.vercel.app (projet Vercel `harmoniegroup`, créé par Robin le 22/11, branche `claude/vibrant-goodall-4hnpna`). Design verre v3 + connexion animée (mot de passe puis 6 cases de verre, d’après l’exemple « Glassy OTP »). **Aucune donnée branchée.**
+
+## Fait le 22/11 (soir)
+- Connexion testée en production par Robin (mot de passe + code Google Authenticator) : elle marche. Cause du premier échec : la clé du code dans Vercel n'était pas celle de l'application ; corrigée en rescannant le QR de la clé déjà enregistrée.
+- Journal serveur des refus de connexion (`[connexion] refus`, sans aucun secret) : lisible dans les journaux Vercel.
 
 ## Décidé (Robin, 22/11/2026)
 | Sujet | Décision |
@@ -32,7 +36,7 @@
 3. Restauration Harmonie Yacht incomplète (4 820 / 4 880 lignes) : ses chiffres peuvent être faux d'ici là.
 4. Luma n'a pas de CA daté (`luma_v_stats` est un cumul) : pour l'année civile 2027, il faudra une vue datée (relais au QG).
 5. Accès de Claude à la base Harmonie Yacht : invitation de l'adresse du compte Supabase de Luma dans l'organisation `harmonieyacht` (rôle Developer), quand Robin le décidera.
-6. `main` n'existe pas encore dans ce dépôt (il était vide) : OK de Robin nécessaire pour la créer et ouvrir la PR.
+6. (toujours ouvert) `main` n'existe pas encore dans ce dépôt (il était vide) : OK de Robin nécessaire pour la créer et ouvrir la PR.
 7. Projet Vercel : Robin met `HG_PASSWORD` et `HG_TOTP_ENROLL=1`, ouvre /connexion/activer-code, scanne le QR, colle la clé affichée dans `HG_TOTP_SECRET`, supprime `HG_TOTP_ENROLL`, redéploie.
 
 8. Sécurité de la connexion à renforcer avant d'y brancher les données : limite d'essais par IP (pare-feu Vercel), refus d'un code TOTP déjà utilisé, `HG_TOTP_ENROLL` à retirer juste après le scan (tant qu'il vaut 1, le mot de passe seul montre le QR code). Couper toutes les sessions : changer `HG_SESSION_SECRET`.
