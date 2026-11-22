@@ -39,7 +39,7 @@
 3. Restauration Harmonie Yacht incomplète (4 820 / 4 880 lignes) : ses chiffres peuvent être faux d'ici là.
 4. Luma n'a pas de CA daté (`luma_v_stats` est un cumul) : pour l'année civile 2027, il faudra une vue datée (relais au QG).
 5. Accès de Claude à la base Harmonie Yacht : invitation de l'adresse du compte Supabase de Luma dans l'organisation `harmonieyacht` (rôle Developer), quand Robin le décidera.
-6. (toujours ouvert) `main` n'existe pas encore dans ce dépôt (il était vide) : OK de Robin nécessaire pour la créer et ouvrir la PR.
+6. `main` créée le 22/11 avec l'accord de Robin (depuis la branche de travail, commit f0649b3). Reste à Robin : branche par défaut GitHub = `main`, branche de production Vercel = `main`. Ensuite : une PR par étape vers `main`.
 7. Projet Vercel : Robin met `HG_PASSWORD` et `HG_TOTP_ENROLL=1`, ouvre /connexion/activer-code, scanne le QR, colle la clé affichée dans `HG_TOTP_SECRET`, supprime `HG_TOTP_ENROLL`, redéploie.
 
 8. Sécurité de la connexion à renforcer avant d'y brancher les données : limite d'essais par IP (pare-feu Vercel), refus d'un code TOTP déjà utilisé, `HG_TOTP_ENROLL` à retirer juste après le scan (tant qu'il vaut 1, le mot de passe seul montre le QR code). Couper toutes les sessions : changer `HG_SESSION_SECRET`.
