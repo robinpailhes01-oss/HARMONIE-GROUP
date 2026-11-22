@@ -29,3 +29,16 @@ test("nouvelleCle : 32 caractères base32, utilisable", async () => {
   assert.match(k, /^[A-Z2-7]{32}$/);
   assert.equal(base32Decode(k).length, 20);
 });
+
+test("decalage : trouve le pas du code, même avec une horloge décalée", async () => {
+  const { decalage } = await import("../lib/totp.ts");
+  const now = 1_000_000_000_000;
+  const step = Math.floor(now / 1000 / 30);
+  assert.equal(await decalage(B32, await hotp(KEY, step), now), 0);
+  assert.equal(await decalage(B32, await hotp(KEY, step - 3), now), -3);
+  assert.equal(await decalage(B32, "12", now), null);
+});
+
+test("base32Decode tolère guillemets et espaces collés par erreur", () => {
+  assert.deepEqual(base32Decode(`"${B32.slice(0, 8)} ${B32.slice(8)}"\n`), KEY);
+});

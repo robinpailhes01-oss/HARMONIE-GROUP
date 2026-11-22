@@ -1,5 +1,5 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { SESSION_COOKIE, SESSION_DAYS, checkCode, checkPassword, configure, createSession, safeNext } from "@/lib/auth";
+import { SESSION_COOKIE, SESSION_DAYS, checkCode, checkPassword, configure, createSession, journalRefus, safeNext } from "@/lib/auth";
 
 /**
  * Connexion : mot de passe ET code à 6 chiffres, vérifiés ensemble (on ne dit jamais lequel est faux).
@@ -34,11 +34,13 @@ export async function POST(req: NextRequest) {
   if (!configure()) return refus("config");
   const [okPw, okCode] = await Promise.all([checkPassword(pw), checkCode(code)]);
   if (!okPw || !okCode) {
+    await journalRefus(okPw, code);
     // Ralentit les essais en série.
     await new Promise((r) => setTimeout(r, 800));
     return refus("refus");
   }
 
+  console.info("[connexion] ok");
   const res = json ? NextResponse.json({ ok: true, next }) : NextResponse.redirect(new URL(next, req.url), 303);
   res.cookies.set(SESSION_COOKIE, await createSession(), {
     httpOnly: true,
