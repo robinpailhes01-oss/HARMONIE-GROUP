@@ -6,6 +6,7 @@ Les décisions propres à une activité restent dans son dépôt (`luma-context/
 
 | Date | Décision | Raison |
 |---|---|---|
+| 2026-11-22 | Structure validée pour `harmonie-group` : `CLAUDE.md` court, `contexte/` (INDEX, socle, groupe, organisation, voix-robin, decisions, questions-ouvertes), `docs/etat.md`, `.claude/agents` et `.claude/skills` | Lire seulement ce qui sert, et rester efficace dans la durée |
 | 2026-11-22 | Style : en session de travail, pas à pas (fait / pourquoi / à toi) ; sur Telegram, court avec boutons OK / Non, détaillé si Robin le demande | Apprendre en session, aller vite sur le téléphone |
 | 2026-11-22 | Pas de prénom pour les nouveaux agents : « le manager », « le comptable » | Le rôle se lit dans le nom |
 | 2026-11-22 | Messages spontanés du manager : seulement les urgences (bug sur un projet client, prospect très chaud), **y compris le week-end** pour ces urgences ; tout le reste attend | Ne rater aucune urgence, sans être dérangé pour le reste |
