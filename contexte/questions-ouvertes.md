@@ -15,5 +15,3 @@ Ce que Robin doit encore fournir ou trancher. Une question réglée part dans `d
 | Passer GitHub en Pro pour protéger `main` (règles appliquées par GitHub, pas seulement écrites) | Avant le manager | Robin |
 | Passer Vercel en Pro (le plan Hobby interdit l'usage commercial) | Dès que possible | Robin |
 | Harmonie Yacht : fusionner `claude/keen-cray-IEgV8` dans `main` et faire suivre `main` à la production | Étape 4 | Technique |
-| Activer la plateforme agréée de Qonto pour recevoir les factures électroniques (obligatoire depuis le 01/09/2026) | Dès que possible | Robin |
-| Brancher le MCP officiel Qonto en interdisant ses outils d'écriture | Étape du comptable | Comptable |
