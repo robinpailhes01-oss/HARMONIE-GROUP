@@ -16,11 +16,13 @@ export type Indicateur = {
   /** Période affichée, si le chiffre en a une. */
   periode?: "annee" | "30j" | "jour";
   format: "euros" | "nombre" | "texte";
+  /** Vrai quand la lecture de la source est en place. Tant que c'est faux : état vide. */
+  branche?: boolean;
 };
 
-export type Liste = { id: string; titre: string; source: string; detail: string; vide: string };
+export type Liste = { id: string; titre: string; source: string; detail: string; vide: string; branche?: boolean };
 
-export type Onglet = { espace: Espace; href: string; nom: string; sousTitre: string; indicateurs: Indicateur[]; listes: Liste[] };
+export type Onglet = { espace: Espace; href: string; nom: string; rubrique: string; sousTitre: string; indicateurs: Indicateur[]; listes: Liste[] };
 
 const LUMA = "Supabase luma-agence";
 const HY = "Supabase Harmonie Yacht";
@@ -29,6 +31,7 @@ const QONTO = "Qonto (synchronisé par Harmonie Yacht)";
 export const ONGLETS: Onglet[] = [
   {
     espace: "groupe",
+    rubrique: "Pilotage",
     href: "/groupe",
     nom: "Groupe",
     sousTitre: "Harmonie Group : un SIREN, un compte Qonto, deux activités.",
@@ -47,6 +50,7 @@ export const ONGLETS: Onglet[] = [
   },
   {
     espace: "luma",
+    rubrique: "Activités",
     href: "/luma",
     nom: "Luma",
     sousTitre: "L'agence IA. Le détail reste dans le studio.",
@@ -63,6 +67,7 @@ export const ONGLETS: Onglet[] = [
   },
   {
     espace: "harmonie-yacht",
+    rubrique: "Activités",
     href: "/harmonie-yacht",
     nom: "Harmonie Yacht",
     sousTitre: "La location du yacht. Le détail reste dans son tableau de bord.",
@@ -77,6 +82,7 @@ export const ONGLETS: Onglet[] = [
   },
   {
     espace: "perso",
+    rubrique: "Personnel",
     href: "/perso",
     nom: "Perso",
     sousTitre: "Les dépenses perso passées sur le compte Qonto, à part.",
@@ -98,4 +104,10 @@ export function libellePeriode(p: Indicateur["periode"], now = new Date()) {
   if (p === "30j") return "30 derniers jours";
   if (p === "jour") return "Dernier relevé";
   return null;
+}
+
+/** Sources branchées sur le total : calculé depuis les définitions ci-dessus, jamais écrit à la main. */
+export function etatSources() {
+  const tout = ONGLETS.flatMap((o) => [...o.indicateurs, ...o.listes]);
+  return { branchees: tout.filter((x) => x.branche).length, total: tout.length };
 }

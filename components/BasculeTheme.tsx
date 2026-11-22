@@ -1,10 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { Monitor, Moon, Sun } from "lucide-react";
 
 type Choix = "auto" | "light" | "dark";
-const LIBELLES: Record<Choix, string> = { auto: "Auto", light: "Clair", dark: "Sombre" };
+const LIBELLES: Record<Choix, string> = { auto: "Auto (suit l'appareil)", light: "Clair", dark: "Sombre" };
 const SUIVANT: Record<Choix, Choix> = { auto: "light", light: "dark", dark: "auto" };
+const ICONES = { auto: Monitor, light: Sun, dark: Moon };
 
 /** Auto (suit l'appareil) → Clair → Sombre. Le choix reste sur cet appareil seulement. */
 export function BasculeTheme() {
@@ -26,14 +28,10 @@ export function BasculeTheme() {
     } catch {}
   }
 
+  const Icone = ICONES[choix];
   return (
-    <button
-      type="button"
-      onClick={changer}
-      className="vitre-puits rounded-full px-3 py-1.5 text-xs text-doux hover:text-texte"
-      aria-label={`Thème : ${LIBELLES[choix]}. Changer`}
-    >
-      {LIBELLES[choix]}
+    <button type="button" onClick={changer} className="bouton-rond" aria-label={`Thème : ${LIBELLES[choix]}. Changer`} title={`Thème : ${LIBELLES[choix]}`}>
+      <Icone className="size-[18px]" strokeWidth={1.8} aria-hidden />
     </button>
   );
 }

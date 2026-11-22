@@ -1,24 +1,40 @@
+import { CalendarRange, Database, Plug } from "lucide-react";
 import { libellePeriode, onglet, type Espace, type Indicateur, type Liste } from "@/lib/indicateurs";
+import { iconeDe } from "./Icones";
 
 /**
  * Une carte = un chiffre, avec sa source et sa date. Tant que la source n'est pas branchée,
- * la carte dit clairement qu'il n'y a pas encore de donnée : jamais de chiffre inventé.
+ * la carte le dit clairement : « — » et « Pas branché ». Jamais de chiffre inventé, jamais de fausse courbe.
  */
 function Carte({ ind }: { ind: Indicateur }) {
+  const Icone = iconeDe(ind.id);
   const periode = libellePeriode(ind.periode);
   return (
-    <article className="vitre flex min-h-36 flex-col justify-between rounded-[26px] p-5">
-      <div>
-        <h3 className="text-sm text-doux">{ind.titre}</h3>
-        {periode && <p className="mt-0.5 text-xs text-doux">{periode}</p>}
+    <article className="vitre carte-levee flex flex-col rounded-[24px] p-4">
+      <div className="flex items-center justify-between gap-2">
+        <div className="flex min-w-0 items-center gap-2">
+          <span className="puce">
+            <Icone className="size-4" strokeWidth={1.8} aria-hidden />
+          </span>
+          <h3 className="truncate text-[13px] font-medium">{ind.titre}</h3>
+        </div>
+        <span className="pastille shrink-0">
+          <Plug className="size-3" strokeWidth={2} aria-hidden />
+          Pas branché
+        </span>
       </div>
-      <p className="chiffre mt-3 text-3xl text-doux" aria-label="Pas encore de donnée">
+      <p className="chiffre mt-4 text-[34px] font-semibold leading-none tracking-tight text-doux/70" aria-label="Pas encore de donnée">
         —
       </p>
-      <p className="mt-2 text-xs text-doux">
-        <span className="rounded-full bg-repere px-2 py-0.5">Pas encore branché</span>
-        <span className="mt-1 block">
-          Source : {ind.source} · <code className="text-[11px]">{ind.detail}</code>
+      <p className="mt-1.5 text-xs text-doux">{periode ?? "Total"}</p>
+      {/* Emplacement de la courbe : un simple trait en pointillés tant qu'il n'y a pas de données. */}
+      <svg className="mt-3 h-8 w-full text-doux/40" viewBox="0 0 200 32" preserveAspectRatio="none" aria-hidden>
+        <line x1="0" y1="24" x2="200" y2="24" stroke="currentColor" strokeWidth="1.5" strokeDasharray="3 5" vectorEffect="non-scaling-stroke" />
+      </svg>
+      <p className="mt-2 flex items-start gap-1.5 border-t border-filet pt-2.5 text-[11px] leading-snug text-doux">
+        <Database className="mt-px size-3 shrink-0" strokeWidth={1.8} aria-hidden />
+        <span>
+          {ind.source} · <code className="font-mono text-[10.5px]">{ind.detail}</code>
         </span>
       </p>
     </article>
@@ -26,31 +42,54 @@ function Carte({ ind }: { ind: Indicateur }) {
 }
 
 function Bloc({ liste }: { liste: Liste }) {
+  const Icone = iconeDe(liste.id);
   return (
-    <section className="vitre rounded-[26px] p-5">
-      <h2 className="titre text-xl">{liste.titre}</h2>
-      <p className="vitre-puits mt-4 rounded-[18px] px-4 py-6 text-center text-sm text-doux">{liste.vide}</p>
-      <p className="mt-3 text-xs text-doux">
-        Source : {liste.source} · <code className="text-[11px]">{liste.detail}</code>
-      </p>
+    <section className="vitre rounded-[24px] p-5">
+      <div className="flex items-start gap-3">
+        <span className="puce">
+          <Icone className="size-4" strokeWidth={1.8} aria-hidden />
+        </span>
+        <div className="min-w-0">
+          <h2 className="text-[15px] font-semibold tracking-tight">{liste.titre}</h2>
+          <p className="mt-0.5 text-xs text-doux">
+            {liste.source} · <code className="font-mono text-[10.5px]">{liste.detail}</code>
+          </p>
+        </div>
+      </div>
+      <div className="vitre-puits mt-4 flex items-center gap-3 rounded-2xl px-4 py-5 text-sm text-doux">
+        <Plug className="size-4 shrink-0" strokeWidth={1.8} aria-hidden />
+        {liste.vide}
+      </div>
     </section>
   );
 }
 
 export function Tableau({ espace }: { espace: Espace }) {
   const o = onglet(espace);
+  const annee = libellePeriode("annee");
   return (
-    <div className="space-y-6">
-      <div>
-        <h1 className="titre text-4xl sm:text-5xl">{o.nom}</h1>
-        <p className="mt-1 text-sm text-doux">{o.sousTitre}</p>
+    <div className="vitre-panneau rounded-[32px] p-4 sm:p-7">
+      <div className="flex flex-wrap items-end justify-between gap-4">
+        <div>
+          <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-lien">
+            {o.rubrique} <span className="mx-1 opacity-50">·</span> {o.nom}
+          </p>
+          <h1 className="mt-2 text-[34px] font-semibold leading-none tracking-tight sm:text-[42px]">{o.nom}</h1>
+          <p className="mt-2 text-sm text-doux">{o.sousTitre}</p>
+        </div>
+        <span className="pastille pastille-grande">
+          <CalendarRange className="size-3.5" strokeWidth={1.8} aria-hidden />
+          {annee}
+        </span>
       </div>
-      <div className="grid grid-cols-1 gap-4 min-[420px]:grid-cols-2 lg:grid-cols-3">
+
+      <div className="mt-6 grid grid-cols-1 gap-3 min-[460px]:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-3">
         {o.indicateurs.map((i) => (
           <Carte key={i.id} ind={i} />
         ))}
       </div>
-      <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+
+      <div className={`mt-3 grid grid-cols-1 gap-3 ${o.listes.length > 1 ? "lg:grid-cols-2" : ""}`}>
         {o.listes.map((l) => (
           <Bloc key={l.id} liste={l} />
         ))}

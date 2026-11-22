@@ -8,7 +8,7 @@ Application web privée de Robin : l'essentiel de toute l'entreprise sur 4 ongle
 
 | Onglet | Contenu | Couleurs |
 |---|---|---|
-| Groupe | Trésorerie Qonto, CA total et par activité, dépenses perso, tâches urgentes, ce qui attend Robin | Neutres |
+| Groupe | Trésorerie Qonto, CA total et par activité, dépenses perso, tâches urgentes, ce qui attend Robin | Neutres chauds (crème, sable) |
 | Luma | Chiffres clés, affaires en cours, tâches urgentes | Verre du studio Luma (lavande, violet) |
 | Harmonie Yacht | Chiffres clés, tâches urgentes | « Verre glacier » d'Harmonie Yacht |
 | Perso | Dépenses perso, à part | Neutres |
@@ -42,3 +42,6 @@ Mettre à jour `docs/etat.md`.
 
 ## Code Next.js
 Next 16 : lire le guide concerné dans `node_modules/next/dist/docs/` avant d'écrire du code (le middleware s'appelle `proxy.ts`).
+
+## Design (validé dans l'esprit par Robin le 22/11/2026, d'après ses exemples)
+Barre latérale de verre avec icônes (lucide-react), barre du haut en pilule avec boutons ronds, un grand panneau de verre qui porte la page, cartes avec pastille d'icône + badge + emplacement de courbe, barre d'onglets flottante en bas sur mobile. Classes : `.vitre`, `.vitre-coque`, `.vitre-panneau`, `.vitre-puits`, `.puce`, `.pastille`, `.bouton-rond`, `.carte-levee` (`app/globals.css`). Jamais de fausse courbe ni de faux chiffre : pointillés et « Pas branché » tant que la source manque.

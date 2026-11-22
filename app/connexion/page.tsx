@@ -30,7 +30,7 @@ export default async function Connexion({ searchParams }: { searchParams: Promis
         <form action="/api/connexion" method="post" className="space-y-4">
           <input type="hidden" name="next" value={safeNext(next)} />
           <Champ nom="motDePasse" label="Mot de passe" type="password" autoComplete="current-password" />
-          <Champ nom="code" label="Code à 6 chiffres (application d'authentification)" autoComplete="one-time-code" inputMode="numeric" pattern="[0-9 ]{6,7}" maxLength={7} />
+          <Champ nom="code" label="Code à 6 chiffres (Google Authenticator)" autoComplete="one-time-code" inputMode="numeric" pattern="[0-9 ]{6,7}" maxLength={7} code />
           {erreur && MESSAGES[erreur] && (
             <p role="alert" className="text-sm text-doux">
               {MESSAGES[erreur]}
