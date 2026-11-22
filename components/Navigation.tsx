@@ -22,20 +22,21 @@ export function Coquille({ children }: { children: React.ReactNode }) {
   const espace = espaceDe(pathname);
   return (
     <div data-espace={espace} className="espace min-h-dvh">
-      <header className="sticky top-0 z-10 border-b border-filet bg-fond/90 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 pt-3 sm:px-6">
+      <header className="sticky top-0 z-10 px-3 pt-3 sm:px-6">
+        <div className="vitre-coque mx-auto max-w-6xl rounded-[26px]">
+        <div className="flex items-center justify-between gap-3 px-4 pt-3 sm:px-5">
           <span className="titre text-lg">Harmonie Group</span>
           <div className="flex items-center gap-2">
             <BasculeTheme />
             <form action="/api/deconnexion" method="post">
-              <button type="submit" className="rounded-full border border-filet px-3 py-1.5 text-xs text-doux hover:text-texte">
+              <button type="submit" className="vitre-puits rounded-full px-3 py-1.5 text-xs text-doux hover:text-texte">
                 Déconnexion
               </button>
             </form>
           </div>
         </div>
-        <nav aria-label="Onglets" className="mx-auto max-w-6xl overflow-x-auto px-4 sm:px-6">
-          <ul className="flex gap-1 py-2">
+        <nav aria-label="Onglets" className="overflow-x-auto px-3 sm:px-4">
+          <ul className="flex gap-0.5 py-2 sm:gap-1">
             {ONGLETS.map((o) => {
               const actif = espace === o.href.slice(1);
               return (
@@ -43,8 +44,8 @@ export function Coquille({ children }: { children: React.ReactNode }) {
                   <Link
                     href={o.href}
                     aria-current={actif ? "page" : undefined}
-                    className={`block whitespace-nowrap rounded-full px-4 py-2 text-sm transition-colors ${
-                      actif ? "bg-accent text-accent-texte" : "text-doux hover:bg-repere hover:text-texte"
+                    className={`block whitespace-nowrap rounded-full px-3 py-2 text-sm sm:px-4 transition-colors ${
+                      actif ? "bg-accent text-accent-texte shadow-sm" : "text-doux hover:bg-repere hover:text-texte"
                     }`}
                   >
                     {o.nom}
@@ -54,8 +55,9 @@ export function Coquille({ children }: { children: React.ReactNode }) {
             })}
           </ul>
         </nav>
+        </div>
       </header>
-      <main className="mx-auto max-w-6xl px-4 py-6 sm:px-6 sm:py-8">{children}</main>
+      <main className="mx-auto max-w-6xl px-4 py-6 sm:px-6 sm:py-10">{children}</main>
     </div>
   );
 }

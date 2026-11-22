@@ -1,9 +1,9 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Instrument_Serif, Poppins } from "next/font/google";
+import { Geist, Instrument_Serif, Urbanist } from "next/font/google";
 import "./globals.css";
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-geist", display: "swap" });
-const poppins = Poppins({ subsets: ["latin"], weight: ["400", "500", "600"], variable: "--font-poppins", display: "swap" });
+const urbanist = Urbanist({ subsets: ["latin"], variable: "--font-urbanist", display: "swap" });
 const instrument = Instrument_Serif({ subsets: ["latin"], weight: "400", style: "italic", variable: "--font-instrument", display: "swap" });
 
 export const metadata: Metadata = {
@@ -19,7 +19,7 @@ const THEME_SCRIPT = `try{var t=localStorage.getItem("hg-theme");if(t==="light"|
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="fr" className={`${geist.variable} ${poppins.variable} ${instrument.variable}`} suppressHydrationWarning>
+    <html lang="fr" className={`${geist.variable} ${urbanist.variable} ${instrument.variable}`} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} />
       </head>

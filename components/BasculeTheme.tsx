@@ -30,7 +30,7 @@ export function BasculeTheme() {
     <button
       type="button"
       onClick={changer}
-      className="rounded-full border border-filet px-3 py-1.5 text-xs text-doux hover:text-texte"
+      className="vitre-puits rounded-full px-3 py-1.5 text-xs text-doux hover:text-texte"
       aria-label={`Thème : ${LIBELLES[choix]}. Changer`}
     >
       {LIBELLES[choix]}

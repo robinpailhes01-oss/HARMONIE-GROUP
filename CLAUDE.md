@@ -9,7 +9,7 @@ Application web privée de Robin : l'essentiel de toute l'entreprise sur 4 ongle
 | Onglet | Contenu | Couleurs |
 |---|---|---|
 | Groupe | Trésorerie Qonto, CA total et par activité, dépenses perso, tâches urgentes, ce qui attend Robin | Neutres |
-| Luma | Chiffres clés, affaires en cours, tâches urgentes | DA du site Luma |
+| Luma | Chiffres clés, affaires en cours, tâches urgentes | Verre du studio Luma (lavande, violet) |
 | Harmonie Yacht | Chiffres clés, tâches urgentes | « Verre glacier » d'Harmonie Yacht |
 | Perso | Dépenses perso, à part | Neutres |
 

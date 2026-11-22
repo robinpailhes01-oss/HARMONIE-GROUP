@@ -7,7 +7,7 @@ import { libellePeriode, onglet, type Espace, type Indicateur, type Liste } from
 function Carte({ ind }: { ind: Indicateur }) {
   const periode = libellePeriode(ind.periode);
   return (
-    <article className="flex min-h-36 flex-col justify-between rounded-2xl border border-filet bg-surface p-4 sm:p-5">
+    <article className="vitre flex min-h-36 flex-col justify-between rounded-[26px] p-5">
       <div>
         <h3 className="text-sm text-doux">{ind.titre}</h3>
         {periode && <p className="mt-0.5 text-xs text-doux">{periode}</p>}
@@ -16,7 +16,7 @@ function Carte({ ind }: { ind: Indicateur }) {
         —
       </p>
       <p className="mt-2 text-xs text-doux">
-        <span className="rounded bg-repere px-1.5 py-0.5">Pas encore branché</span>
+        <span className="rounded-full bg-repere px-2 py-0.5">Pas encore branché</span>
         <span className="mt-1 block">
           Source : {ind.source} · <code className="text-[11px]">{ind.detail}</code>
         </span>
@@ -27,9 +27,9 @@ function Carte({ ind }: { ind: Indicateur }) {
 
 function Bloc({ liste }: { liste: Liste }) {
   return (
-    <section className="rounded-2xl border border-filet bg-surface p-4 sm:p-5">
+    <section className="vitre rounded-[26px] p-5">
       <h2 className="titre text-xl">{liste.titre}</h2>
-      <p className="mt-4 rounded-xl border border-dashed border-filet px-4 py-6 text-center text-sm text-doux">{liste.vide}</p>
+      <p className="vitre-puits mt-4 rounded-[18px] px-4 py-6 text-center text-sm text-doux">{liste.vide}</p>
       <p className="mt-3 text-xs text-doux">
         Source : {liste.source} · <code className="text-[11px]">{liste.detail}</code>
       </p>
@@ -42,15 +42,15 @@ export function Tableau({ espace }: { espace: Espace }) {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="titre text-3xl sm:text-4xl">{o.nom}</h1>
+        <h1 className="titre text-4xl sm:text-5xl">{o.nom}</h1>
         <p className="mt-1 text-sm text-doux">{o.sousTitre}</p>
       </div>
-      <div className="grid grid-cols-1 gap-3 min-[420px]:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-4 min-[420px]:grid-cols-2 lg:grid-cols-3">
         {o.indicateurs.map((i) => (
           <Carte key={i.id} ind={i} />
         ))}
       </div>
-      <div className="grid grid-cols-1 gap-3 lg:grid-cols-2">
+      <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
         {o.listes.map((l) => (
           <Bloc key={l.id} liste={l} />
         ))}
