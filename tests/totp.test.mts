@@ -22,3 +22,10 @@ test("verifyTotp accepte le pas courant et voisin, refuse le reste", async () =>
   assert.equal(await verifyTotp(B32, code, now + 120_000), false);
   assert.equal(await verifyTotp(B32, "abc", now), false);
 });
+
+test("nouvelleCle : 32 caractères base32, utilisable", async () => {
+  const { nouvelleCle } = await import("../lib/totp.ts");
+  const k = nouvelleCle();
+  assert.match(k, /^[A-Z2-7]{32}$/);
+  assert.equal(base32Decode(k).length, 20);
+});

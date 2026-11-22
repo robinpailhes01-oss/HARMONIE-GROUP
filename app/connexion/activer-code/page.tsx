@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Bouton, Cadre, Champ } from "@/components/Formulaire";
-import { configure } from "@/lib/auth";
+import { etatConfig } from "@/lib/auth";
 
 export const metadata: Metadata = { title: "Activer le code" };
 export const dynamic = "force-dynamic";
@@ -11,7 +11,7 @@ export const dynamic = "force-dynamic";
  */
 export default async function ActiverCode({ searchParams }: { searchParams: Promise<{ erreur?: string }> }) {
   const { erreur } = await searchParams;
-  if (process.env.HG_TOTP_ENROLL !== "1" || !configure()) {
+  if (process.env.HG_TOTP_ENROLL !== "1" || etatConfig().motDePasse !== "ok") {
     return (
       <Cadre titre="Activer le code">
         <p className="text-sm text-doux">Cette page est fermée.</p>

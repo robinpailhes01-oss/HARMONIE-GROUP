@@ -56,3 +56,20 @@ export function otpauthUri(secretB32: string, label = "Harmonie Group") {
   const l = encodeURIComponent(label);
   return `otpauth://totp/${l}?secret=${secretB32.replace(/\s/g, "").toUpperCase()}&issuer=${l}&algorithm=SHA1&digits=6&period=30`;
 }
+
+/** Nouvelle clé aléatoire (160 bits, base32), générée au moment de l'activation. */
+export function nouvelleCle() {
+  const bytes = crypto.getRandomValues(new Uint8Array(20));
+  let bits = 0;
+  let value = 0;
+  let out = "";
+  for (const b of bytes) {
+    value = (value << 8) | b;
+    bits += 8;
+    while (bits >= 5) {
+      out += B32[(value >>> (bits - 5)) & 31];
+      bits -= 5;
+    }
+  }
+  return out;
+}
