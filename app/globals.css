@@ -1,0 +1,181 @@
+@import "tailwindcss";
+
+/*
+ * Couleurs par espace : la page entière change quand on change d'onglet (attribut data-espace).
+ * Clair et sombre : on suit le téléphone ou l'ordinateur, sauf choix forcé (data-theme sur <html>).
+ *  - Groupe et Perso : neutres.
+ *  - Luma : DA du site luma-agence.fr (robin-LP, app/globals.css et page de vente) : nuit #17263D, crème #F6F3EC,
+ *    poudre #CADFED, Poppins + Instrument Serif italique. Le site n'a pas de mode sombre : version sombre tirée de la nuit.
+ *  - Harmonie Yacht : « Verre glacier » (IA-HY-INFRA-NEW, docs/DESIGN.md) : marine #0B2545, océan #2F7FE0,
+ *    glace #DCEBFA, Geist + Instrument Serif. Clair seulement chez lui : version sombre tirée du marine.
+ */
+
+@theme inline {
+  --color-fond: var(--fond);
+  --color-surface: var(--surface);
+  --color-texte: var(--texte);
+  --color-doux: var(--doux);
+  --color-filet: var(--filet);
+  --color-accent: var(--accent);
+  --color-accent-texte: var(--accent-texte);
+  --color-repere: var(--repere);
+  --font-sans: var(--police);
+  --font-titre: var(--police-titre);
+}
+
+[data-espace] {
+  --police: var(--font-geist), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --police-titre: var(--police);
+  --titre-style: normal;
+}
+
+/* ---------- Clair ---------- */
+[data-espace="groupe"],
+[data-espace="perso"] {
+  --fond: #f5f5f3;
+  --surface: #ffffff;
+  --texte: #18191b;
+  --doux: #5c6066;
+  --filet: #e2e2de;
+  --accent: #18191b;
+  --accent-texte: #ffffff;
+  --repere: #ececea;
+}
+[data-espace="luma"] {
+  --fond: #f6f3ec;
+  --surface: #fcfbf8;
+  --texte: #17263d;
+  --doux: #56667a;
+  --filet: #ddd8cc;
+  --accent: #17263d;
+  --accent-texte: #ffffff;
+  --repere: #cadfed;
+  --police: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+  --police-titre: var(--font-instrument), Georgia, serif;
+  --titre-style: italic;
+}
+[data-espace="harmonie-yacht"] {
+  --fond: #edf3fa;
+  --surface: rgb(255 255 255 / 0.78);
+  --texte: #0b1b33;
+  --doux: #4b5b73;
+  --filet: #dcebfa;
+  --accent: #2f7fe0;
+  --accent-texte: #ffffff;
+  --repere: #dcebfa;
+  --police-titre: var(--font-instrument), Georgia, serif;
+  --titre-style: italic;
+}
+
+/* ---------- Sombre ---------- */
+:root[data-theme="dark"] [data-espace="groupe"],
+:root[data-theme="dark"] [data-espace="perso"] {
+  --fond: #111214;
+  --surface: #1a1b1e;
+  --texte: #ececea;
+  --doux: #a3a6ab;
+  --filet: #2b2d31;
+  --accent: #ececea;
+  --accent-texte: #111214;
+  --repere: #26282c;
+}
+:root[data-theme="dark"] [data-espace="luma"] {
+  --fond: #0f1b2e;
+  --surface: #17263d;
+  --texte: #f6f3ec;
+  --doux: #b8c3cf;
+  --filet: #2b3d58;
+  --accent: #cadfed;
+  --accent-texte: #17263d;
+  --repere: #22344f;
+}
+:root[data-theme="dark"] [data-espace="harmonie-yacht"] {
+  --fond: #071a31;
+  --surface: rgb(11 37 69 / 0.85);
+  --texte: #f4f8fc;
+  --doux: #a5b8cf;
+  --filet: #1c3a60;
+  --accent: #7cc0f5;
+  --accent-texte: #0b2545;
+  --repere: #12335a;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) [data-espace="groupe"],
+  :root:not([data-theme="light"]) [data-espace="perso"] {
+    --fond: #111214;
+    --surface: #1a1b1e;
+    --texte: #ececea;
+    --doux: #a3a6ab;
+    --filet: #2b2d31;
+    --accent: #ececea;
+    --accent-texte: #111214;
+    --repere: #26282c;
+  }
+  :root:not([data-theme="light"]) [data-espace="luma"] {
+    --fond: #0f1b2e;
+    --surface: #17263d;
+    --texte: #f6f3ec;
+    --doux: #b8c3cf;
+    --filet: #2b3d58;
+    --accent: #cadfed;
+    --accent-texte: #17263d;
+    --repere: #22344f;
+  }
+  :root:not([data-theme="light"]) [data-espace="harmonie-yacht"] {
+    --fond: #071a31;
+    --surface: rgb(11 37 69 / 0.85);
+    --texte: #f4f8fc;
+    --doux: #a5b8cf;
+    --filet: #1c3a60;
+    --accent: #7cc0f5;
+    --accent-texte: #0b2545;
+    --repere: #12335a;
+  }
+}
+
+html {
+  color-scheme: light dark;
+}
+:root[data-theme="light"] {
+  color-scheme: light;
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+}
+body {
+  margin: 0;
+  background: #f5f5f3;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) body {
+    background: #111214;
+  }
+}
+:root[data-theme="dark"] body {
+  background: #111214;
+}
+
+.espace {
+  background: var(--fond);
+  color: var(--texte);
+  font-family: var(--police);
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+.titre {
+  font-family: var(--police-titre);
+  font-style: var(--titre-style);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+.chiffre {
+  font-variant-numeric: tabular-nums;
+}
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .espace {
+    transition: none;
+  }
+}
