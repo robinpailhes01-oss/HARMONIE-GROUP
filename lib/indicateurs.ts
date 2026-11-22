@@ -78,7 +78,10 @@ export const ONGLETS: Onglet[] = [
       { id: "score", titre: "Score financier", source: HY, detail: "financial_snapshots.score_label", periode: "jour", format: "texte" },
       { id: "reservations", titre: "Réservations confirmées", source: HY, detail: "bookings (status confirmed)", format: "nombre" },
     ],
-    listes: [{ id: "urgent", titre: "Tâches urgentes", source: HY, detail: "leads.needs_human_intervention", vide: "Aucun lead à reprendre pour l'instant." }],
+    listes: [
+      { id: "reservations", titre: "Prochaines sorties", source: HY, detail: "bookings (date à venir, pas annulée)", vide: "Aucune sortie à venir affichée pour l'instant." },
+      { id: "urgent", titre: "Leads à reprendre", source: HY, detail: "leads.needs_human_intervention", vide: "Aucun lead à reprendre pour l'instant." },
+    ],
   },
   {
     espace: "perso",

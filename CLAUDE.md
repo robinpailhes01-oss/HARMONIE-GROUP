@@ -28,6 +28,7 @@ La liste des indicateurs et leur source est dans `lib/indicateurs.ts`. Chaque ch
 - Connexion obligatoire : mot de passe + code à 6 chiffres (`lib/auth.ts`, `lib/totp.ts`). Session de 7 jours.
 - Lecture des bases : côté serveur uniquement, avec un accès en lecture seule (rôle ou vues dédiées).
 - **Pas de chiffre en dur.** Une donnée manque → état vide clair (« Pas encore branché »).
+- **Mode démo** (demande de Robin du 22/11/2026) : données fictives **uniquement** dans `lib/demo.ts`, toujours étiquetées « Démo · données fictives », coupables d'un clic (bouton « Démo », cookie `hg_demo`). Actif par défaut tant qu'aucune source n'est branchée. Une carte est soit 100 % démo, soit 100 % réelle : jamais de mélange. Les listes d'outils et d'agents (`lib/ecosysteme.ts`) sont réelles ; seuls leurs états sont fictifs en démo.
 - Mobile, mode clair et mode sombre obligatoires.
 - **Jamais de clé dans un fichier ni dans le chat** : les clés vont dans Vercel (Production et Preview). `.env.example` ne contient que des noms.
 - OK explicite de Robin pour : créer un rôle ou une migration en production, toute écriture dans Qonto, supprimer quoi que ce soit.

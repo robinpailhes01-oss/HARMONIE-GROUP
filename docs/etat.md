@@ -11,6 +11,9 @@
 - Connexion testée en production par Robin (mot de passe + code Google Authenticator) : elle marche. Cause du premier échec : la clé du code dans Vercel n'était pas celle de l'application ; corrigée en rescannant le QR de la clé déjà enregistrée.
 - Journal serveur des refus de connexion (`[connexion] refus`, sans aucun secret) : lisible dans les journaux Vercel.
 
+- Mode démo (données fictives, étiquetées, bouton « Démo ») : chiffres, courbes, graphique par mois, « À retenir », listes, outils connectés et agents sur les 4 onglets.
+- Relais envoyé au QG (id f8bbdcb9-80c5-4991-b10b-2c5fb56a71d5, expéditeur `robin` car « harmonie-group » n'est pas un nom accepté) : schéma `groupe` + rôle `groupe_lecture` sur luma-agence, vue datée des encaissements pour 2027.
+
 ## Décidé (Robin, 22/11/2026)
 | Sujet | Décision |
 |---|---|
