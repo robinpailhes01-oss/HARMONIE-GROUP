@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = { width: "device-width", initialScale: 1 };
 
 /* Applique le thème forcé (clair ou sombre) avant le premier rendu, pour éviter un flash. */
-const THEME_SCRIPT = `try{var t=localStorage.getItem("hg-theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}`;
+const THEME_SCRIPT = `try{var t=localStorage.getItem("hg-theme");if(t==="dark")document.documentElement.dataset.theme=t}catch(e){}`;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (

@@ -17,7 +17,7 @@ const RUBRIQUES = ["Pilotage", "Activités", "Personnel"];
 function Marque() {
   return (
     <div className="flex items-center gap-3">
-      <span className="grid size-10 place-items-center rounded-2xl bg-accent text-accent-texte shadow-[0_8px_20px_-8px_var(--lueur)]">
+      <span className="bouton-plein grid size-10 place-items-center rounded-2xl">
         <span className="titre text-base">HG</span>
       </span>
       <span className="leading-tight">
@@ -31,7 +31,7 @@ function Marque() {
 function BarreLaterale({ espace }: { espace: Espace }) {
   const { branchees, total } = etatSources();
   return (
-    <aside className="vitre-coque sticky top-4 hidden h-[calc(100dvh-2rem)] w-64 shrink-0 flex-col rounded-[28px] p-4 lg:flex">
+    <aside className="vitre-coque cadre sticky top-4 hidden h-[calc(100dvh-2rem)] w-64 shrink-0 flex-col rounded-[28px] p-4 lg:flex">
       <div className="px-2 pt-1">
         <Marque />
       </div>
@@ -50,7 +50,7 @@ function BarreLaterale({ espace }: { espace: Espace }) {
                       aria-current={actif ? "page" : undefined}
                       className={`flex items-center gap-3 rounded-2xl px-3 py-2.5 text-sm transition-all duration-200 ${
                         actif
-                          ? "bg-accent font-medium text-accent-texte shadow-[0_10px_24px_-10px_var(--lueur)]"
+                          ? "bouton-plein font-medium"
                           : "text-doux hover:bg-repere hover:text-texte"
                       }`}
                     >
@@ -72,7 +72,7 @@ function BarreLaterale({ espace }: { espace: Espace }) {
           </span>
         </div>
         <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-repere">
-          <div className="h-full rounded-full bg-accent" style={{ width: `${total ? (branchees / total) * 100 : 0}%` }} />
+          <div className="bouton-plein h-full rounded-full" style={{ width: `${total ? (branchees / total) * 100 : 0}%` }} />
         </div>
       </div>
     </aside>
@@ -82,7 +82,7 @@ function BarreLaterale({ espace }: { espace: Espace }) {
 function BarreHaut({ espace }: { espace: Espace }) {
   const o = ONGLETS.find((x) => x.espace === espace)!;
   return (
-    <header className="vitre-coque flex items-center justify-between gap-3 rounded-full py-2 pl-4 pr-2 sm:pl-5">
+    <header className="vitre-coque cadre relative flex items-center justify-between gap-3 rounded-full py-2 pl-4 pr-2 sm:pl-5">
       <div className="flex min-w-0 items-center gap-2 text-sm">
         <span className="lg:hidden">
           <Marque />
@@ -98,7 +98,7 @@ function BarreHaut({ espace }: { espace: Espace }) {
             <LogOut className="size-[18px]" strokeWidth={1.8} aria-hidden />
           </button>
         </form>
-        <span className="hidden size-10 place-items-center rounded-full bg-accent text-sm font-semibold text-accent-texte sm:grid" aria-hidden>
+        <span className="bouton-plein hidden size-10 place-items-center rounded-full text-sm font-semibold sm:grid" aria-hidden>
           R
         </span>
       </div>
@@ -109,7 +109,7 @@ function BarreHaut({ espace }: { espace: Espace }) {
 /** Mobile : barre d'onglets flottante en bas. */
 function BarreBas({ espace }: { espace: Espace }) {
   return (
-    <nav aria-label="Onglets" className="vitre-coque fixed inset-x-3 bottom-3 z-20 rounded-full p-1.5 lg:hidden" style={{ paddingBottom: "max(0.375rem, env(safe-area-inset-bottom))" }}>
+    <nav aria-label="Onglets" className="vitre-coque cadre barre-bas fixed inset-x-3 bottom-3 z-20 rounded-full p-1.5 lg:hidden" style={{ paddingBottom: "max(0.375rem, env(safe-area-inset-bottom))" }}>
       <ul className="grid grid-cols-4">
         {ONGLETS.map((o) => {
           const Icone = ICONE_ESPACE[o.espace];
@@ -120,7 +120,7 @@ function BarreBas({ espace }: { espace: Espace }) {
                 href={o.href}
                 aria-current={actif ? "page" : undefined}
                 className={`flex flex-col items-center gap-0.5 rounded-full px-1 py-2 text-[11px] leading-none transition-all ${
-                  actif ? "bg-accent text-accent-texte shadow-[0_8px_20px_-8px_var(--lueur)]" : "text-doux"
+                  actif ? "bouton-plein" : "text-doux"
                 }`}
               >
                 <Icone className="size-5" strokeWidth={1.8} aria-hidden />
@@ -134,11 +134,23 @@ function BarreBas({ espace }: { espace: Espace }) {
   );
 }
 
+/** La scène lumineuse derrière le verre (dégradé, trois orbes qui dérivent, grain). */
+export function Scene() {
+  return (
+    <div className="scene" aria-hidden>
+      <i />
+      <i />
+      <i />
+    </div>
+  );
+}
+
 /** Toute la page prend les couleurs de l'onglet ouvert. */
 export function Coquille({ children }: { children: React.ReactNode }) {
   const espace = espaceDe(usePathname());
   return (
     <div data-espace={espace} className="espace min-h-dvh">
+      <Scene />
       <div className="mx-auto flex max-w-[1440px] gap-4 p-3 sm:p-4">
         <BarreLaterale espace={espace} />
         <div className="min-w-0 flex-1 space-y-4 pb-24 lg:pb-0">

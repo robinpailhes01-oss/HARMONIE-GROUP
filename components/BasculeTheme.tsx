@@ -1,36 +1,31 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Monitor, Moon, Sun } from "lucide-react";
+import { Moon, Sun } from "lucide-react";
 
-type Choix = "auto" | "light" | "dark";
-const LIBELLES: Record<Choix, string> = { auto: "Auto (suit l'appareil)", light: "Clair", dark: "Sombre" };
-const SUIVANT: Record<Choix, Choix> = { auto: "light", light: "dark", dark: "auto" };
-const ICONES = { auto: Monitor, light: Sun, dark: Moon };
-
-/** Auto (suit l'appareil) → Clair → Sombre. Le choix reste sur cet appareil seulement. */
+/** Clair par défaut (choix de Robin, 22/11/2026). Sombre « crépuscule » au choix ; le choix reste sur cet appareil. */
 export function BasculeTheme() {
-  const [choix, setChoix] = useState<Choix>("auto");
+  const [sombre, setSombre] = useState(false);
 
   useEffect(() => {
-    const t = document.documentElement.dataset.theme;
-    if (t === "light" || t === "dark") setChoix(t);
+    setSombre(document.documentElement.dataset.theme === "dark");
   }, []);
 
   function changer() {
-    const n = SUIVANT[choix];
-    setChoix(n);
-    if (n === "auto") delete document.documentElement.dataset.theme;
-    else document.documentElement.dataset.theme = n;
+    const n = !sombre;
+    setSombre(n);
+    if (n) document.documentElement.dataset.theme = "dark";
+    else delete document.documentElement.dataset.theme;
     try {
-      if (n === "auto") localStorage.removeItem("hg-theme");
-      else localStorage.setItem("hg-theme", n);
+      if (n) localStorage.setItem("hg-theme", "dark");
+      else localStorage.removeItem("hg-theme");
     } catch {}
   }
 
-  const Icone = ICONES[choix];
+  const Icone = sombre ? Sun : Moon;
+  const libelle = sombre ? "Passer en clair" : "Passer en sombre";
   return (
-    <button type="button" onClick={changer} className="bouton-rond" aria-label={`Thème : ${LIBELLES[choix]}. Changer`} title={`Thème : ${LIBELLES[choix]}`}>
+    <button type="button" onClick={changer} className="bouton-rond" aria-label={libelle} title={libelle}>
       <Icone className="size-[18px]" strokeWidth={1.8} aria-hidden />
     </button>
   );
