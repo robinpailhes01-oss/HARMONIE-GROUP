@@ -4,7 +4,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { LogOut } from "lucide-react";
 import { ONGLETS, etatSources, type Espace } from "@/lib/indicateurs";
-import { BasculeDemo } from "./BasculeDemo";
 import { BasculeTheme } from "./BasculeTheme";
 import { ICONE_ESPACE } from "./Icones";
 
@@ -80,7 +79,7 @@ function BarreLaterale({ espace }: { espace: Espace }) {
   );
 }
 
-function BarreHaut({ espace, demo }: { espace: Espace; demo: boolean }) {
+function BarreHaut({ espace }: { espace: Espace }) {
   const o = ONGLETS.find((x) => x.espace === espace)!;
   return (
     <header className="vitre-coque cadre relative flex items-center justify-between gap-3 rounded-full py-2 pl-4 pr-2 sm:pl-5">
@@ -93,7 +92,6 @@ function BarreHaut({ espace, demo }: { espace: Espace; demo: boolean }) {
         </span>
       </div>
       <div className="flex items-center gap-2">
-        <BasculeDemo actif={demo} />
         <BasculeTheme />
         <form action="/api/deconnexion" method="post">
           <button type="submit" className="bouton-rond" aria-label="Déconnexion" title="Déconnexion">
@@ -148,7 +146,7 @@ export function Scene() {
 }
 
 /** Toute la page prend les couleurs de l'onglet ouvert. */
-export function Coquille({ children, demo }: { children: React.ReactNode; demo: boolean }) {
+export function Coquille({ children }: { children: React.ReactNode }) {
   const espace = espaceDe(usePathname());
   return (
     <div data-espace={espace} className="espace min-h-dvh">
@@ -156,7 +154,7 @@ export function Coquille({ children, demo }: { children: React.ReactNode; demo: 
       <div className="mx-auto flex max-w-[1440px] gap-4 p-3 sm:p-4">
         <BarreLaterale espace={espace} />
         <div className="min-w-0 flex-1 space-y-4 pb-24 lg:pb-0">
-          <BarreHaut espace={espace} demo={demo} />
+          <BarreHaut espace={espace} />
           <main>{children}</main>
         </div>
       </div>

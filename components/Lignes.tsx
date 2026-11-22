@@ -1,5 +1,5 @@
 import { CircleAlert, CircleCheck, CircleDot, TriangleAlert } from "lucide-react";
-import type { LigneDemo, Ton } from "@/lib/demo";
+import type { Ligne, Ton } from "@/lib/types";
 import { COULEUR_SERIE } from "@/lib/format";
 
 /** État : toujours une icône + un mot, jamais la couleur seule. */
@@ -27,7 +27,7 @@ export function Tag({ tag }: { tag: keyof typeof TAGS }) {
   );
 }
 
-export function Lignes({ lignes }: { lignes: LigneDemo[] }) {
+export function Lignes({ lignes }: { lignes: Ligne[] }) {
   return (
     <ul className="space-y-1.5">
       {lignes.map((l, k) => {

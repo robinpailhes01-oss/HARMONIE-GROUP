@@ -9,7 +9,7 @@ type Serie = { id: keyof typeof COULEUR_SERIE; nom: string; valeurs: number[] };
  * Barres groupées par mois (1 ou 2 séries, une seule échelle). Survol d'un mois : info-bulle avec les valeurs.
  * Légende dès 2 séries ; les étiquettes restent dans les couleurs du texte, la couleur ne porte que l'identité.
  */
-export function GrapheBarres({ mois, series, demo }: { mois: string[]; series: Serie[]; demo?: boolean }) {
+export function GrapheBarres({ mois, series }: { mois: string[]; series: Serie[] }) {
   const [survol, setSurvol] = useState<number | null>(null);
   const max = Math.max(1, ...series.flatMap((s) => s.valeurs));
   const pas = Math.pow(10, Math.floor(Math.log10(max)));
@@ -56,7 +56,7 @@ export function GrapheBarres({ mois, series, demo }: { mois: string[]; series: S
               {survol === i && (
                 <span className="vitre pointer-events-none absolute bottom-full z-10 mb-2 w-max rounded-xl px-3 py-2 text-left text-xs shadow-lg">
                   <span className="block font-medium">
-                    {m} {demo && <span className="text-doux">· démo</span>}
+                    {m}
                   </span>
                   {series.map((s) => (
                     <span key={s.id} className="mt-0.5 flex items-center gap-1.5">
