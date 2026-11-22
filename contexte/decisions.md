@@ -6,6 +6,9 @@ Les décisions propres à une activité restent dans son dépôt (`luma-context/
 
 | Date | Décision | Raison |
 |---|---|---|
+| 2026-11-22 | Dépense perso sur Qonto : en cas de doute, le comptable demande sur Telegram (boutons Luma / Harmonie Yacht / Perso / 50-50) et retient la réponse pour ce marchand | Robin ne valide que les cas douteux ; le comptable apprend au fil du temps |
+| 2026-11-22 | Revolut et DeBlock sont des comptes **perso uniquement** : ils alimentent l'onglet Perso, jamais la compta de l'entreprise | Garder le perso à part |
+| 2026-11-22 | Aucune dépense pub pour Harmonie Yacht pendant la fermeture ; un plafond sera fixé avant la reprise d'avril. Le plafond de Luma reste celui de `luma_pub_garde_fous` | Bateau fermé de début décembre à début avril |
 | 2026-11-22 | La femme de Robin (Instagram et photos d'Harmonie Yacht) aura un accès plus tard : à préciser | Elle produit le contenu ; son accès sera cadré avec l'agent contenu |
 | 2026-11-22 | Le manager ne dépose rien lui-même dans un dépôt client : il transmet le résumé d'appel à la session qui possède le projet, et c'est elle qui l'écrit | Le manager n'écrit jamais dans un projet, sans exception |
 | 2026-11-22 | Le comptable du groupe prépare **toutes** les factures (Luma et Harmonie Yacht) dès qu'un virement arrive ; Robin valide d'un bouton avant l'envoi. La session PROPOSITION de Luma ne garde que les propositions commerciales | Un seul propriétaire pour les factures |
