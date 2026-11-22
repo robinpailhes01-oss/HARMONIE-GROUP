@@ -20,10 +20,10 @@
 
 | | Luma | Harmonie Yacht |
 |---|---|---|
-| Quoi | Agence IA pour dirigeants de PME (B2B) | Yacht de 12 m : nuits insolites et sorties en mer privatisées (paddle, plateforme), jusqu'à 10 personnes **[À CONFIRMER]** |
+| Quoi | Agence IA pour dirigeants de PME (B2B) | Yacht de 12 m : nuits insolites et sorties en mer privatisées (paddle, plateforme), jusqu'à 10 personnes |
 | Public | Dirigeants de PME | B2C et événements privés : familles, anniversaires, mariages, EVJF/EVG, petites entreprises jusqu'à 10 personnes |
-| Prix | Voir `luma-context/` | Nuits à 200 à 400 € **[À CONFIRMER]** |
-| Lieu et dates | Montpellier | Actuellement à Carnon, prévu à Sète en avril 2027. Fermeture de début décembre à début avril **[À CONFIRMER]** |
+| Prix | Voir `luma-context/` | Nuits de 200 à 400 € (prix exacts : uniquement dans la base, `agent_config`) |
+| Lieu et dates | Montpellier | Actuellement à Carnon, prévu à Sète en avril 2027. Fermeture de début décembre à début avril |
 | Réseaux | @luma_agence | Compte Instagram propre, géré par sa femme |
 | Dépôt, base | `robin-lp`, `luma-agence` | `ia-hy-infra-new`, projet Supabase `fscrhzxpmxvejrhppftc` |
 
