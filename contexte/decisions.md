@@ -6,6 +6,7 @@ Les décisions propres à une activité restent dans son dépôt (`luma-context/
 
 | Date | Décision | Raison |
 |---|---|---|
+| 2026-11-23 | Numérotation des factures : deux suites continues, `LUMA-AAAA-001` et `HY-AAAA-001` (à confronter à la numérotation de Qonto avant de figer) | Chaque activité se lit seule ; la loi veut une suite chronologique sans trou |
 | 2026-11-23 | Comptable : toute facture ou tout devis préparé passe par un double contrôle, sans seuil de montant (forme exacte à confirmer par Robin) | Pas de document financier sans relecture, pour commencer |
 | 2026-11-23 | Robin branche le MCP officiel de Qonto (outils d'écriture interdits). Les relevés Revolut et DeBlock sont donnés par Robin lui-même | Accès Qonto sans risque sur l'argent ; le perso reste à part |
 | 2026-11-22 | Chiffre d'affaires compté sur l'année civile (1er janvier – 31 décembre) | Décidé lors de l'inventaire du tableau de pilotage |
