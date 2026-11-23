@@ -10,7 +10,7 @@ Mis à jour le 22/11/2026. Cible voulue par Robin, puis ce qui existe aujourd'hu
 ## Les agents
 | Agent | Rôle | Vit dans | État au 22/11 |
 |---|---|---|---|
-| Le manager | Reçoit, distribue, suit, prévient | `harmonie-group` | À construire. Remplace QG, `manager-luma` et le Manager Telegram d'Harmonie Yacht |
+| Le manager | Reçoit, distribue, suit, prévient | `harmonie-group` | À construire. Remplace QG, `manager-luma`, le Manager Telegram d'Harmonie Yacht et Hermes (VPS Hostinger) |
 | Le comptable | Classe les dépenses (Luma / HY / Perso / 50-50), factures et devis, justificatifs, point du lundi | `harmonie-group` | **Prochain agent à construire** |
 | Le contenu | Contenu des deux activités, deux calendriers séparés | `harmonie-group` | Plus tard |
 | Simon | Prospection à froid de Luma | `robin-lp` | Existe, à remettre à jour |
@@ -30,4 +30,5 @@ Mis à jour le 22/11/2026. Cible voulue par Robin, puis ce qui existe aujourd'hu
 
 ## Comment le travail circule
 - Aujourd'hui chez Luma : les **relais** (table `luma_relais`, `robin-lp/docs/relais.md`) et les tâches (`luma_taches`), tenus par QG.
-- **À trancher** : ce que deviennent les relais quand le manager remplace QG, et le rôle d'Hermes (voir `questions-ouvertes.md`).
+- Hermes (VPS Hostinger, Telegram) et le plan des « bureaux » (`robin-lp/docs/bureaux-telegram.md`) sont remplacés par le manager, puis arrêtés.
+- **À trancher à l'étape du manager** : le VPS (Hostinger existant ou nouveau) et ce que deviennent les relais.

@@ -6,6 +6,7 @@ Les décisions propres à une activité restent dans son dépôt (`luma-context/
 
 | Date | Décision | Raison |
 |---|---|---|
+| 2026-11-23 | Le manager global remplace Hermes (VPS Hostinger, Telegram) et le plan des « bureaux » ; ils sont arrêtés une fois le manager en place. Choix du VPS et sort des relais (`luma_relais`) : à l'étape du manager | Un seul agent sur Telegram, construit avec nos fichiers |
 | 2026-11-22 | Socle installé dans l'environnement cloud « Robin » (script de démarrage qui écrit `~/.claude/CLAUDE.md`). **Toute modification de `socle.md` doit être recopiée dans le script de l'environnement** (proposée à Robin, qui l'approuve) | Une seule source, installée partout ; l'audit mensuel vérifie que les deux sont identiques |
 | 2026-11-22 | Ton des agents avec Robin : comme un associé, amical et humain, tutoiement, franc | Demandé par Robin |
 | 2026-11-22 | Socle commun validé (`contexte/socle.md`) | Base lue par toutes les sessions |
