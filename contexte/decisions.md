@@ -6,6 +6,8 @@ Les décisions propres à une activité restent dans son dépôt (`luma-context/
 
 | Date | Décision | Raison |
 |---|---|---|
+| 2026-11-23 | Base d'Harmonie Yacht : le comptable y accède par une vue en lecture seule sur `bank_transactions`, créée par la session Harmonie Yacht (pas de rôle Developer) | Le comptable ne voit que les mouvements bancaires, sans risque d'écriture |
+| 2026-11-23 | Le MCP Qonto doit permettre au comptable de lire ET de créer des devis et factures (envoi seulement après l'OK de Robin) | Précision de Robin ; rappel : virements, cartes et liens de paiement restent interdits |
 | 2026-11-23 | Numérotation des factures : deux suites continues, `LUMA-AAAA-001` et `HY-AAAA-001` (à confronter à la numérotation de Qonto avant de figer) | Chaque activité se lit seule ; la loi veut une suite chronologique sans trou |
 | 2026-11-23 | Comptable : toute facture ou tout devis préparé passe par un double contrôle, sans seuil de montant (forme exacte à confirmer par Robin) | Pas de document financier sans relecture, pour commencer |
 | 2026-11-23 | Robin branche le MCP officiel de Qonto (outils d'écriture interdits). Les relevés Revolut et DeBlock sont donnés par Robin lui-même | Accès Qonto sans risque sur l'argent ; le perso reste à part |
