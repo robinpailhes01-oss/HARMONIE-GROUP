@@ -14,6 +14,13 @@
 - Mode démo ajouté puis **supprimé à la demande de Robin** (22/11). Restent : la structure réelle (graphique par mois, « À retenir », listes, outils et agents réels) en état vide « Pas branché », et les composants graphiques (`GrapheBarres`, `Sparkline`, `Lignes`) prêts pour les vraies données.
 - Relais envoyé au QG (id f8bbdcb9-80c5-4991-b10b-2c5fb56a71d5, expéditeur `robin` car « harmonie-group » n'est pas un nom accepté) : schéma `groupe` + rôle `groupe_lecture` sur luma-agence, vue datée des encaissements pour 2027.
 
+## Fait le 23/11
+- Base Supabase **harmonie-group** (`khmnmpyyjootyfiaywzp`, Paris, organisation LUMA AGENCE, gratuite) créée avec l'OK de Robin : `hg_agents` (35 lignes), `hg_outils` (16), `hg_temps_standard` (5 temps validés), `hg_reglages`. RLS sans policy : seule la clé service (serveur) lit et écrit.
+- Pages **Équipe** (organigramme, statut modifiable d'un clic) et **Journal** (méthode de calcul visible ; fil et gains en attente de l'accès Luma/HY).
+- Onglet Luma : CA de l'année, MRR signé, paiements à venir, clients signés, CA mensuel, clients chauds et paiements à venir. Icônes refaites (galets colorés).
+- Relais QG n°2 (ac7b0e4d) : champ MRR, règle « clients chauds », échéancier des paiements.
+- Valeur d'une heure de Robin : non réglée (repère : 225 €/h sur 2 affaires Luma, 4 h).
+
 ## Décidé (Robin, 22/11/2026)
 | Sujet | Décision |
 |---|---|

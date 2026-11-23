@@ -55,13 +55,13 @@ export const ONGLETS: Onglet[] = [
     nom: "Luma",
     sousTitre: "L'agence IA. Le détail reste dans le studio.",
     indicateurs: [
-      { id: "ca-encaisse", titre: "CA encaissé", source: LUMA, detail: "luma_v_stats.ca_encaisse_ttc", periode: "annee", format: "euros" },
-      { id: "ca-signe", titre: "CA signé", source: LUMA, detail: "luma_v_stats.ca_signe_ttc", periode: "annee", format: "euros" },
+      { id: "ca-annee", titre: "CA de l'année", source: LUMA, detail: "encaissements datés (vue demandée au QG le 22/11)", periode: "annee", format: "euros" },
+      { id: "mrr", titre: "MRR signé", source: LUMA, detail: "abonnements mensuels signés (champ à créer côté Luma, relais QG du 23/11)", format: "euros" },
+      { id: "paiements-a-venir", titre: "Paiements à venir", source: LUMA, detail: "luma_v_pipeline : prix_facture_ttc − encaisse_ttc (affaires signées)", format: "euros" },
       { id: "clients", titre: "Clients signés", source: LUMA, detail: "luma_v_stats.clients_signes", format: "nombre" },
-      { id: "actions-dues", titre: "Actions dues", source: LUMA, detail: "luma_v_actions_dues", format: "nombre" },
     ],
     listes: [
-      { id: "affaires", titre: "Affaires en cours", source: LUMA, detail: "luma_v_pipeline", vide: "Aucune affaire affichée pour l'instant." },
+      { id: "chauds", titre: "Clients chauds et paiements à venir", source: LUMA, detail: "luma_v_pipeline (statut devis_envoye ou discussion ; reste à encaisser des signés)", vide: "Aucun client chaud affiché pour l'instant." },
       { id: "urgent", titre: "Tâches urgentes", source: LUMA, detail: "luma_taches (urgent, pas fait)", vide: "Aucune tâche urgente remontée pour l'instant." },
     ],
   },

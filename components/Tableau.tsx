@@ -78,7 +78,7 @@ function Bloc({ liste }: { liste: Liste }) {
 
 const TITRE_GRAPHE: Record<Espace, string> = {
   groupe: "Chiffre d'affaires par mois",
-  luma: "CA encaissé par mois",
+  luma: "CA mensuel",
   "harmonie-yacht": "Recettes et dépenses par mois",
   perso: "Dépenses perso par mois",
 };

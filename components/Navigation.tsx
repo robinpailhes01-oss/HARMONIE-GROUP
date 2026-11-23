@@ -2,10 +2,16 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { LogOut } from "lucide-react";
+import { LogOut, Network, ScrollText } from "lucide-react";
 import { ONGLETS, etatSources, type Espace } from "@/lib/indicateurs";
 import { BasculeTheme } from "./BasculeTheme";
 import { ICONE_ESPACE } from "./Icones";
+
+/** Pages d'organisation : couleurs neutres du Groupe. */
+const PAGES_ORGA = [
+  { href: "/equipe", nom: "Équipe", Icone: Network },
+  { href: "/journal", nom: "Journal", Icone: ScrollText },
+];
 
 export function espaceDe(pathname: string): Espace {
   const o = ONGLETS.find((x) => pathname === x.href || pathname.startsWith(`${x.href}/`));
@@ -28,7 +34,7 @@ function Marque() {
   );
 }
 
-function BarreLaterale({ espace }: { espace: Espace }) {
+function BarreLaterale({ espace, chemin }: { espace: Espace; chemin: string }) {
   const { branchees, total } = etatSources();
   return (
     <aside className="vitre-coque cadre sticky top-4 hidden h-[calc(100dvh-2rem)] w-64 shrink-0 flex-col rounded-[28px] p-4 lg:flex">
@@ -42,7 +48,7 @@ function BarreLaterale({ espace }: { espace: Espace }) {
             <ul className="mt-2 space-y-1">
               {ONGLETS.filter((o) => o.rubrique === r).map((o) => {
                 const Icone = ICONE_ESPACE[o.espace];
-                const actif = o.espace === espace;
+                const actif = o.espace === espace && !PAGES_ORGA.some((p) => p.href === chemin);
                 return (
                   <li key={o.href}>
                     <Link
@@ -63,6 +69,26 @@ function BarreLaterale({ espace }: { espace: Espace }) {
             </ul>
           </div>
         ))}
+        <div>
+          <p className="px-3 text-[11px] font-medium uppercase tracking-[0.14em] text-doux">Organisation</p>
+          <ul className="mt-2 space-y-1">
+            {PAGES_ORGA.map((p) => {
+              const actif = chemin === p.href;
+              return (
+                <li key={p.href}>
+                  <Link
+                    href={p.href}
+                    aria-current={actif ? "page" : undefined}
+                    className={`flex items-center gap-3 rounded-2xl px-3 py-2.5 text-sm transition-all duration-200 ${actif ? "bouton-plein font-medium" : "text-doux hover:bg-repere hover:text-texte"}`}
+                  >
+                    <p.Icone className="size-[18px]" strokeWidth={1.8} aria-hidden />
+                    {p.nom}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
       </nav>
       <div className="vitre-puits rounded-2xl p-3">
         <div className="flex items-center justify-between text-xs">
@@ -79,8 +105,9 @@ function BarreLaterale({ espace }: { espace: Espace }) {
   );
 }
 
-function BarreHaut({ espace }: { espace: Espace }) {
-  const o = ONGLETS.find((x) => x.espace === espace)!;
+function BarreHaut({ espace, chemin }: { espace: Espace; chemin: string }) {
+  const orga = PAGES_ORGA.find((p) => p.href === chemin);
+  const o = orga ? { rubrique: "Organisation", nom: orga.nom } : ONGLETS.find((x) => x.espace === espace)!;
   return (
     <header className="vitre-coque cadre relative flex items-center justify-between gap-3 rounded-full py-2 pl-4 pr-2 sm:pl-5">
       <div className="flex min-w-0 items-center gap-2 text-sm">
@@ -107,19 +134,19 @@ function BarreHaut({ espace }: { espace: Espace }) {
 }
 
 /** Mobile : barre d'onglets flottante en bas. */
-function BarreBas({ espace }: { espace: Espace }) {
+function BarreBas({ espace, chemin }: { espace: Espace; chemin: string }) {
   return (
     <nav aria-label="Onglets" className="vitre-coque cadre barre-bas fixed inset-x-3 bottom-3 z-20 rounded-full p-1.5 lg:hidden" style={{ paddingBottom: "max(0.375rem, env(safe-area-inset-bottom))" }}>
-      <ul className="grid grid-cols-4">
-        {ONGLETS.map((o) => {
-          const Icone = ICONE_ESPACE[o.espace];
-          const actif = o.espace === espace;
+      <ul className="grid grid-cols-6">
+        {[...ONGLETS.map((o) => ({ href: o.href, nom: o.nom, Icone: ICONE_ESPACE[o.espace], actif: o.espace === espace && !PAGES_ORGA.some((p) => p.href === chemin) })), ...PAGES_ORGA.map((p) => ({ ...p, actif: chemin === p.href }))].map((o) => {
+          const Icone = o.Icone;
+          const actif = o.actif;
           return (
             <li key={o.href}>
               <Link
                 href={o.href}
                 aria-current={actif ? "page" : undefined}
-                className={`flex flex-col items-center gap-0.5 rounded-full px-1 py-2 text-[11px] leading-none transition-all ${
+                className={`flex flex-col items-center gap-0.5 rounded-full px-0.5 py-2 text-[10px] leading-none transition-all ${
                   actif ? "bouton-plein" : "text-doux"
                 }`}
               >
@@ -147,18 +174,19 @@ export function Scene() {
 
 /** Toute la page prend les couleurs de l'onglet ouvert. */
 export function Coquille({ children }: { children: React.ReactNode }) {
-  const espace = espaceDe(usePathname());
+  const chemin = usePathname();
+  const espace = espaceDe(chemin);
   return (
     <div data-espace={espace} className="espace min-h-dvh">
       <Scene />
       <div className="mx-auto flex max-w-[1440px] gap-4 p-3 sm:p-4">
-        <BarreLaterale espace={espace} />
+        <BarreLaterale espace={espace} chemin={chemin} />
         <div className="min-w-0 flex-1 space-y-4 pb-24 lg:pb-0">
-          <BarreHaut espace={espace} />
+          <BarreHaut espace={espace} chemin={chemin} />
           <main>{children}</main>
         </div>
       </div>
-      <BarreBas espace={espace} />
+      <BarreBas espace={espace} chemin={chemin} />
     </div>
   );
 }

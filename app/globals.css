@@ -44,6 +44,8 @@
   --repere: rgb(120 90 60 / 0.08);
   --lien: #9a6f3e;
   --teinte: 150 110 70;
+  --puce-1: #e2b27a;
+  --puce-2: #9a6a38;
   --scene-sombre: radial-gradient(50rem 36rem at 20% 10%, #6b4a2e 0%, transparent 65%), radial-gradient(46rem 34rem at 90% 90%, #3b2a1c 0%, transparent 60%), linear-gradient(160deg, #2a1f17 0%, #1d1611 100%);
   --accent-sombre: #c79a63;
 }
@@ -63,6 +65,8 @@
   --repere: rgb(91 69 214 / 0.09);
   --lien: #5b45d6;
   --teinte: 91 69 214;
+  --puce-1: #a38bff;
+  --puce-2: #5b45d6;
   --scene-sombre: radial-gradient(50rem 36rem at 15% 5%, #5b45d6 0%, transparent 62%), radial-gradient(46rem 34rem at 95% 95%, #2a2470 0%, transparent 60%), linear-gradient(160deg, #241f6b 0%, #14163f 100%);
   --accent-sombre: #6b4fd8;
 }
@@ -81,6 +85,8 @@
   --repere: rgb(47 127 224 / 0.09);
   --lien: #2f7fe0;
   --teinte: 47 127 224;
+  --puce-1: #6fd0f2;
+  --puce-2: #2f7fe0;
   --scene-sombre: radial-gradient(50rem 36rem at 15% 5%, #2f7fe0 0%, transparent 62%), radial-gradient(46rem 34rem at 95% 95%, #0f5e8a 0%, transparent 60%), linear-gradient(160deg, #123a6b 0%, #0a1f3d 100%);
   --accent-sombre: #2f7fe0;
 }
@@ -278,18 +284,39 @@ body {
   box-shadow: inset 0 1px 2px rgb(0 0 0 / 0.2);
 }
 
-/* Pastille d'icône : un petit galet de verre teinté. */
+/* Pastille d'icône : un galet de verre coloré (dégradé de l'espace), icône blanche, reflet en haut, lueur dessous. */
 .puce {
+  position: relative;
   display: grid;
   place-items: center;
-  width: 2.1rem;
-  height: 2.1rem;
+  width: 2.4rem;
+  height: 2.4rem;
   flex-shrink: 0;
-  border-radius: 0.8rem;
-  color: var(--lien);
-  background: linear-gradient(150deg, rgb(255 255 255 / 0.95), rgb(var(--teinte) / 0.14));
-  border: 1px solid rgb(255 255 255 / 0.9);
-  box-shadow: inset 0 -2px 4px rgb(var(--teinte) / 0.12), 0 4px 10px -4px rgb(var(--teinte) / 0.35);
+  border-radius: 0.95rem;
+  color: #ffffff;
+  background: linear-gradient(150deg, var(--puce-1), var(--puce-2));
+  border: 1px solid rgb(255 255 255 / 0.55);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.55),
+    inset 0 -6px 10px -4px rgb(0 0 0 / 0.18),
+    0 8px 18px -8px var(--puce-2);
+  overflow: hidden;
+}
+.puce::before {
+  /* Reflet de verre sur la moitié haute. */
+  content: "";
+  position: absolute;
+  inset: 1px 1px 52% 1px;
+  border-radius: 0.85rem 0.85rem 0.6rem 0.6rem;
+  background: linear-gradient(180deg, rgb(255 255 255 / 0.45), rgb(255 255 255 / 0));
+  pointer-events: none;
+}
+.puce svg {
+  position: relative;
+  width: 1.1rem;
+  height: 1.1rem;
+  stroke-width: 2;
+  filter: drop-shadow(0 1px 1px rgb(0 0 0 / 0.18));
 }
 .pastille {
   display: inline-flex;
@@ -458,4 +485,32 @@ body {
 .baisse {
   color: #b4232d;
   background: rgb(224 77 85 / 0.12);
+}
+
+/* Statuts d'agent (sélecteur) : un mot toujours visible, la couleur n'est qu'un repère. */
+.statut {
+  border: 1px solid rgb(255 255 255 / 0.85);
+  box-shadow: inset 0 -1px 2px rgb(0 0 0 / 0.05);
+}
+.statut-actif {
+  color: #157a49;
+  background: rgb(31 157 92 / 0.13);
+}
+.statut-en_construction {
+  color: #9a5b05;
+  background: rgb(217 130 43 / 0.16);
+}
+.statut-prevu {
+  color: #4b5b73;
+  background: rgb(75 91 115 / 0.1);
+}
+.statut-en_pause {
+  color: #6b6259;
+  background: rgb(107 98 89 / 0.12);
+}
+.statut-vide {
+  color: var(--doux);
+  background: rgb(255 255 255 / 0.5);
+  border-style: dashed;
+  border-color: var(--filet);
 }

@@ -1,8 +1,11 @@
 import { Bot, Plug, Workflow } from "lucide-react";
-import { agentsDe, outilsDe } from "@/lib/ecosysteme";
+import { agentsDe, outilsDe, type Agent, type Outil } from "@/lib/ecosysteme";
+import { lireAgents, lireOutils } from "@/lib/hgdb";
+import { LIBELLE_STATUT } from "@/lib/statuts";
 import type { Espace } from "@/lib/indicateurs";
 
-function Etat({ aCreer }: { aCreer?: boolean }) {
+function Etat({ aCreer, statut }: { aCreer?: boolean; statut?: string | null }) {
+  if (statut !== undefined) return <span className={`statut statut-${statut || "vide"} rounded-full px-2.5 py-1 text-[11px] font-medium`}>{LIBELLE_STATUT[statut ?? ""]}</span>;
   if (aCreer) return <span className="pastille">À créer</span>;
   return (
     <span className="pastille">
@@ -21,9 +24,16 @@ function initiales(nom: string) {
     .toUpperCase();
 }
 
-export function Ecosysteme({ espace }: { espace: Espace }) {
-  const outils = outilsDe(espace);
-  const agents = agentsDe(espace);
+type AgentAffiche = Agent & { statut?: string | null };
+
+/** La liste vient du registre (base Harmonie Group, page Équipe) quand il est branché ; sinon de lib/ecosysteme.ts. */
+export async function Ecosysteme({ espace }: { espace: Espace }) {
+  const [reg, regOutils] = await Promise.all([lireAgents(), lireOutils()]);
+  const garder = (e: string, id: string) => espace === "groupe" || (espace === "perso" ? id === "comptable" || id === "qonto" : e === espace);
+  const agents: AgentAffiche[] = reg
+    ? reg.filter((a) => garder(a.espace, a.id) && a.statut !== "prevu").map((a) => ({ id: a.id, nom: a.nom, role: a.role, espace: a.espace, type: a.type === "session" ? "agent" : a.type, statut: a.statut }))
+    : agentsDe(espace);
+  const outils: Outil[] = regOutils ? regOutils.filter((o) => garder(o.espace, o.id) || o.id === "qonto") : outilsDe(espace);
   return (
     <div className="grid grid-cols-1 gap-3 xl:grid-cols-2">
       <section className="vitre rounded-[24px] p-5">
@@ -58,7 +68,7 @@ export function Ecosysteme({ espace }: { espace: Espace }) {
           </span>
           <div>
             <h2 className="text-[15px] font-semibold tracking-tight">Agents et automatismes</h2>
-            <p className="text-xs text-doux">Liste réelle · activité pas encore branchée</p>
+            <p className="text-xs text-doux">Statuts de la page Équipe · activité pas encore branchée</p>
           </div>
         </div>
         <ul className="mt-4 space-y-1.5">
@@ -75,7 +85,7 @@ export function Ecosysteme({ espace }: { espace: Espace }) {
                   </span>
                   <span className="block truncate text-xs text-doux">{a.role}</span>
                 </span>
-                <Etat aCreer={a.aCreer} />
+                <Etat aCreer={a.aCreer} statut={a.statut} />
               </li>
             );
           })}
