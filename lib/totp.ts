@@ -6,7 +6,7 @@
 const B32 = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
 
 export function base32Decode(input: string): Uint8Array {
-  const clean = input.toUpperCase().replace(/[\s=-]/g, "");
+  const clean = input.toUpperCase().replace(/[\s="'\u2018\u2019\u201C\u201D-]/g, "");
   let bits = 0;
   let value = 0;
   const out: number[] = [];
@@ -49,6 +49,21 @@ export async function verifyTotp(secretB32: string, code: string, now = Date.now
     if ((await hotp(key, step + d)) === clean) ok = true;
   }
   return ok;
+}
+
+/**
+ * Diagnostic : à quel pas de 30 s (par rapport à maintenant) le code saisi correspond-il ? 0 = bon, +1/-1 = tolérés,
+ * au-delà = horloge du téléphone décalée. null = ne correspond à aucun pas proche (mauvaise clé ou mauvais code).
+ */
+export async function decalage(secretB32: string, code: string, now = Date.now(), fenetre = 20): Promise<number | null> {
+  const clean = code.replace(/\s/g, "");
+  if (!/^\d{6}$/.test(clean)) return null;
+  const key = base32Decode(secretB32);
+  const step = Math.floor(now / 1000 / 30);
+  for (let d = 0; d <= fenetre; d++) {
+    for (const sens of d === 0 ? [0] : [-d, d]) if ((await hotp(key, step + sens)) === clean) return sens;
+  }
+  return null;
 }
 
 /** Adresse otpauth:// à scanner dans l'application d'authentification. */

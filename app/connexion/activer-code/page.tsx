@@ -14,7 +14,16 @@ export default async function ActiverCode({ searchParams }: { searchParams: Prom
   if (process.env.HG_TOTP_ENROLL !== "1" || etatConfig().motDePasse !== "ok") {
     return (
       <Cadre titre="Activer le code">
-        <p className="text-sm text-doux">Cette page est fermée.</p>
+        <p className="text-sm text-doux">Cette page est fermée. Pour l&apos;ouvrir, dans Vercel (Settings → Environment Variables, cocher Production) :</p>
+        <ol className="mt-3 list-decimal space-y-1.5 pl-5 text-sm text-doux">
+          <li>
+            <code>HG_PASSWORD</code> : ton mot de passe, <strong>16 caractères minimum</strong>.
+          </li>
+          <li>
+            <code>HG_TOTP_ENROLL</code> : exactement <code>1</code>.
+          </li>
+          <li>Puis Deployments → ⋯ → Redeploy : une variable ajoutée ne compte qu&apos;après un nouveau déploiement.</li>
+        </ol>
       </Cadre>
     );
   }
