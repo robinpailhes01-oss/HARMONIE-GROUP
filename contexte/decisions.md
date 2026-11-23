@@ -6,6 +6,8 @@ Les décisions propres à une activité restent dans son dépôt (`luma-context/
 
 | Date | Décision | Raison |
 |---|---|---|
+| 2026-11-23 | Robin délègue les fusions : Claude fusionne lui-même ses PR quand build, tests et relecture passent. Ce qui touche l'argent, Qonto, les paiements ou les clients garde l'OK de Robin sur la Preview avant fusion | Robin n'a plus le temps de fusionner ; l'argent et les clients restent protégés |
+| 2026-11-23 | La production du tableau de pilotage (Vercel `harmoniegroup`) suit `main` | Même règle que pour Harmonie Yacht |
 | 2026-11-22 | Chiffre d'affaires compté sur l'année civile (1er janvier – 31 décembre) | Décidé lors de l'inventaire du tableau de pilotage |
 | 2026-11-23 | Le manager global remplace Hermes (VPS Hostinger, Telegram) et le plan des « bureaux » ; ils sont arrêtés une fois le manager en place. Choix du VPS et sort des relais (`luma_relais`) : à l'étape du manager | Un seul agent sur Telegram, construit avec nos fichiers |
 | 2026-11-22 | Socle installé dans l'environnement cloud « Robin » (script de démarrage qui écrit `~/.claude/CLAUDE.md`). **Toute modification de `socle.md` doit être recopiée dans le script de l'environnement** (proposée à Robin, qui l'approuve) | Une seule source, installée partout ; l'audit mensuel vérifie que les deux sont identiques |
