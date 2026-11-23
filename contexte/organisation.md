@@ -13,17 +13,17 @@ Mis à jour le 22/11/2026. Cible voulue par Robin, puis ce qui existe aujourd'hu
 | Le manager | Reçoit, distribue, suit, prévient | `harmonie-group` | À construire. Remplace QG, `manager-luma`, le Manager Telegram d'Harmonie Yacht et Hermes (VPS Hostinger) |
 | Le comptable | Classe les dépenses (Luma / HY / Perso / 50-50), factures et devis, justificatifs, point du lundi | `harmonie-group` | **Prochain agent à construire** |
 | Le contenu | Contenu des deux activités, deux calendriers séparés | `harmonie-group` | Plus tard |
-| Simon | Prospection à froid de Luma | `robin-lp` | Existe, à remettre à jour |
-| Jordan | Ventes de Luma : RDV, relances, propositions | `robin-lp` | Existe, à remettre à jour |
-| Don (+ créatif, analyste, stratège, design) | Pub Meta de Luma | `robin-lp` | Existe, à remettre à jour |
-| Lecteur-avatar, critique vidéo, montage | Relecture et vidéo de Luma | `robin-lp` | Existe, à remettre à jour |
+| Simon | Prospection à froid de Luma | `robin-LP` | Existe, à remettre à jour |
+| Jordan | Ventes de Luma : RDV, relances, propositions | `robin-LP` | Existe, à remettre à jour |
+| Don (+ créatif, analyste, stratège, design) | Pub Meta de Luma | `robin-LP` | Existe, à remettre à jour |
+| Lecteur-avatar, critique vidéo, montage | Relecture et vidéo de Luma | `robin-LP` | Existe, à remettre à jour |
 | Léa | Ventes d'Harmonie Yacht : WhatsApp, Instagram, mail, relances | `IA-HY-INFRA-NEW` (fonctions Supabase) | En production |
 
 ## Qui possède quoi
 | Quoi | Propriétaire |
 |---|---|
 | `harmonie-group` (contexte commun, tableau de pilotage, manager, comptable) | Session HARMONIE GROUP |
-| `robin-lp` | Sessions Luma (voir `robin-lp/CLAUDE.md`) |
+| `robin-LP` | Sessions Luma (voir `robin-lp/CLAUDE.md`) |
 | `IA-HY-INFRA-NEW` | Session HARMONIE YACHT |
 | Les factures (Luma et Harmonie Yacht) | Le comptable |
 | Un dépôt client | La session de ce client. Le manager lui transmet les résumés d'appels |

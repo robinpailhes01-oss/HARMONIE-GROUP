@@ -19,6 +19,7 @@ Lis `contexte/decisions.md` et `docs/etat.md`. Une décision de Robin va tout de
 - Next 16 : lire le guide concerné dans `node_modules/next/dist/docs/` avant d'écrire du code. Le middleware s'appelle `proxy.ts`.
 - Lecture des bases : côté serveur uniquement, avec un accès en lecture seule (rôle ou vues dédiées). La base d'Harmonie Yacht n'est pas encore accessible au connecteur Supabase de Claude.
 - Qonto : on lit les transactions déjà synchronisées par Harmonie Yacht (`bank_transactions`). Pas de 3ᵉ code Qonto.
+- **La production du tableau de pilotage suit encore `claude/vibrant-goodall-4hnpna`** (pas `main`) : n'y pousse rien tant que Robin n'a pas basculé Vercel sur `main` (`docs/etat.md`).
 - Le nom `harmonie-group` n'est pas accepté comme expéditeur dans les relais de Luma : utiliser `robin`.
 
 ## Qui possède quoi

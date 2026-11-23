@@ -10,11 +10,11 @@ Ne lis que ce dont ta tâche a besoin. `socle.md` est déjà chargé dans chaque
 | Les agents, qui fait quoi, comment le travail circule | `organisation.md` |
 | Ce que Robin a décidé (à lire au début de chaque conversation) | `decisions.md` |
 | Ce qui n'est pas encore tranché | `questions-ouvertes.md` |
-| La structure voulue par Robin (dictée du 22/11, archive) | `structure-harmonie-group.md` |
+| La structure voulue par Robin (dictée du 22/11, **archive** : en cas d'écart, `decisions.md` l'emporte) | `structure-harmonie-group.md` |
 | Outils, risques et améliorations repérés le 22/11 | `../docs/recherche-2026-11-22.md` |
 | Où en est ce dépôt | `../docs/etat.md` |
-| Luma en détail | `robin-lp/luma-context/INDEX.md` |
-| Harmonie Yacht en détail | `IA-HY-INFRA-NEW/CLAUDE.md`, puis `hy-context/` |
+| Luma en détail | `robin-LP/luma-context/INDEX.md` |
+| Harmonie Yacht en détail | `IA-HY-INFRA-NEW/CLAUDE.md` |
 
 ## Entretien
 - Une information vit dans **un seul** fichier ; les autres y renvoient.

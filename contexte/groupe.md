@@ -9,7 +9,7 @@ Mis à jour le 22/11/2026. Les chiffres ne vivent jamais ici : ils sont dans les
 | Public | Dirigeants de PME | Familles, anniversaires, mariages, EVJF/EVG, petites entreprises |
 | Lieu | Montpellier | Carnon, puis Sète à partir d'avril 2027. Fermé de début décembre à début avril |
 | Instagram | @luma_agence | Compte propre, géré par la femme de Robin |
-| Contexte détaillé | `robin-lp/luma-context/` | `ia-hy-infra-new/hy-context/` |
+| Contexte détaillé | `robin-LP/luma-context/` | `IA-HY-INFRA-NEW/hy-context/` |
 
 Une troisième activité est possible plus tard. Personne d'autre que Robin n'a d'accès pour l'instant.
 
@@ -26,7 +26,7 @@ Logiciels partagés : 50/50 entre Luma et Harmonie Yacht. SIREN, TVA, expert-com
 | Dépôt | Rôle | Base Supabase | Mise en ligne |
 |---|---|---|---|
 | `harmonie-group` | Le centre : tableau de pilotage, manager, comptable, ce contexte | Aucune (lit les deux autres) | Vercel |
-| `robin-lp` | L'atelier Luma : site, studio, propositions, agents de Luma | `luma-agence` (`neuyffidnykfsabiqruy`) | Vercel |
+| `robin-LP` | L'atelier Luma : site, studio, propositions, agents de Luma | `luma-agence` (`neuyffidnykfsabiqruy`) | Vercel |
 | `IA-HY-INFRA-NEW` | L'atelier Harmonie Yacht : tableau de bord, Léa | `fscrhzxpmxvejrhppftc` (pas encore accessible au connecteur Supabase de Claude) | Vercel `ia-hy-infra-new`, production sur `main` |
 | `TESTE-HYSITE` | Site public harmonie-yacht.fr | Celle d'Harmonie Yacht | Vercel `teste-hysite` |
 | Un dépôt par client de Luma | Le projet livré au client | Propre au client | — |

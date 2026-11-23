@@ -14,6 +14,5 @@ Ce que Robin doit encore fournir ou trancher. Une question réglée part dans `d
 | La base d'Harmonie Yacht n'est pas accessible au connecteur Supabase de Claude : comment lire les stats de Léa et la compta en lecture seule | Étape du comptable | Technique |
 | Passer GitHub en Pro pour protéger `main` (règles appliquées par GitHub, pas seulement écrites) | Avant le manager | Robin |
 | Passer Vercel en Pro (le plan Hobby interdit l'usage commercial) | Dès que possible | Robin |
-| Harmonie Yacht : fusionner `claude/keen-cray-IEgV8` dans `main` et faire suivre `main` à la production | Étape 4 | Technique |
 | VPS du manager : garder le Hostinger d'Hermes ou en prendre un nouveau | Étape du manager | Robin |
 | Les relais entre sessions (`luma_relais`) quand le manager remplace QG | Étape du manager | Manager |
