@@ -4,7 +4,7 @@ Ce que Robin doit encore fournir ou trancher. Une question réglée part dans `d
 
 | Question | Pour quand | Pour qui |
 |---|---|---|
-| SIREN, forme juridique, régime de TVA, expert-comptable et ce qu'il attend | Étape du comptable | Comptable |
+| Régime de TVA exact (franchise ou TVA collectée), expert-comptable et ce qu'il attend, numérotation des factures | Étape du comptable | Comptable |
 | Comment arrivent les relevés Revolut et DeBlock chaque semaine (fichier, format) | Étape du comptable | Comptable |
 | Liens des vidéos YouTube de compta pour former le comptable | Étape du comptable | Comptable |
 | Plafond de dépenses pub d'Harmonie Yacht, avant la reprise d'avril 2027 | Avant avril 2027 | Pub |

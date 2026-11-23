@@ -20,7 +20,7 @@ Une troisième activité est possible plus tard. Personne d'autre que Robin n'a 
 | Revolut, DeBlock | Perso uniquement : onglet Perso, jamais la compta de l'entreprise |
 | SumUp, Stripe | Encaissements d'Harmonie Yacht |
 
-Logiciels partagés : 50/50 entre Luma et Harmonie Yacht. SIREN, TVA, expert-comptable : voir `questions-ouvertes.md`.
+Logiciels partagés : 50/50 entre Luma et Harmonie Yacht. SIREN **991738733**, forme **SAS** (donnés par Robin le 23/11). Les ventes sont à 20 % de TVA selon Robin ; le régime exact et l'expert-comptable : voir `questions-ouvertes.md`.
 
 ## Dépôts, bases, mise en ligne
 | Dépôt | Rôle | Base Supabase | Mise en ligne |
