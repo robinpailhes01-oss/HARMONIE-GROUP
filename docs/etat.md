@@ -1,6 +1,13 @@
 # État d'Harmonie Group
 
-**Dernière mise à jour : 23/11/2026 — session HARMONIE GROUP (reconfiguration du contexte)**
+**Dernière mise à jour : 26/11/2026 — session HARMONIE GROUP (comptable, factures, soldes)**
+
+## Fait le 26/11 (comptable et soldes)
+- Fiche `.claude/agents/comptable.md` (sonnet) et skill `.claude/skills/facturer/` écrits, validés par Robin pour la fiche ; le skill attend sa validation.
+- MCP Qonto branché ; liste d'outils autorisés pour le comptable à ajouter à `comptable.md` (lecture, brouillons de factures, justificatifs ; jamais virements, cartes, liens de paiement).
+- Base compta dans le projet Supabase `harmonie-group` : tables `compta_comptes`, `compta_mouvements`, `compta_regles_marchands` (migrations 003 à 005), rôle `groupe_lecture` (lecture seule). Les 2 comptes Qonto y sont, avec leur solde daté.
+- PR « soldes » : les cartes « Trésorerie (compte principal) » et « TVA à reverser » de l'onglet Groupe lisent `compta_comptes`. Tout le reste reste « Pas branché ». Les virements internes principal ↔ TVA ne comptent jamais dans le CA (Qonto les range à tort en « Chiffre d'affaires »).
+- Factures LAYONN INVEST : `F-2026-011` (480 €) finalisée et payée ; avoir `A-2026-001` + `F-2026-012` (490 €) créés, mais à vérifier (voir plus bas).
 
 ## Où on en est
 - **Contexte fusionné** dans `main` le 23/11 (PR #2). La production du tableau de pilotage suit `main`.
@@ -18,3 +25,7 @@
 - Restauration Harmonie Yacht incomplète (4 820 / 4 880 lignes) : ses chiffres peuvent être faux d'ici là.
 - Luma n'a pas de CA daté (`luma_v_stats` est un cumul) : il faudra une vue datée pour l'année 2027.
 - Période du CA : année civile (décision du 22/11).
+
+## À vérifier (26/11/2026)
+- **Avoir `A-2026-001` (−490 €) + facture `F-2026-012` (490 €) sur LAYONN INVEST** : faits sur la base d'un virement du 31/10/**2025** (« PAIEMENT LOGICIEL IA », facture `F-2025-001` « prospection commerciale »). Or la base Luma dit que la V1 de Lovexplorer (agent Céleste) vaut **450 € TTC, encaissés**, et sa proposition la date du 16/10/**2026**. L'identification V1 = F-2025-001 est donc probablement fausse. Les factures ont déjà été envoyées au client. À trancher avec Robin avant toute autre écriture.
+- Mot de passe du rôle `groupe_lecture` : tapé dans le chat par Robin (donc à changer) ; variable `COMPTA_LECTURE_URL` pas encore posée dans Vercel.
