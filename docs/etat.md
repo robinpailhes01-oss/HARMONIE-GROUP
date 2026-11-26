@@ -18,3 +18,7 @@
 - Restauration Harmonie Yacht incomplète (4 820 / 4 880 lignes) : ses chiffres peuvent être faux d'ici là.
 - Luma n'a pas de CA daté (`luma_v_stats` est un cumul) : il faudra une vue datée pour l'année 2027.
 - Période du CA : année civile (décision du 22/11).
+
+## À vérifier (26/11/2026)
+- **Avoir `A-2026-001` (−490 €) + facture `F-2026-012` (490 €) sur LAYONN INVEST** : faits sur la base d'un virement du 31/10/**2025** (« PAIEMENT LOGICIEL IA », facture `F-2025-001` « prospection commerciale »). Or la base Luma dit que la V1 de Lovexplorer (agent Céleste) vaut **450 € TTC, encaissés**, et sa proposition la date du 16/10/**2026**. L'identification V1 = F-2025-001 est donc probablement fausse. Les factures ont déjà été envoyées au client. À trancher avec Robin avant toute autre écriture.
+- Mot de passe du rôle `groupe_lecture` : tapé dans le chat par Robin (donc à changer) ; variable `COMPTA_LECTURE_URL` pas encore posée dans Vercel.
