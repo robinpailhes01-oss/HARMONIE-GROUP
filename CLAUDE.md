@@ -18,7 +18,7 @@ Lis `contexte/decisions.md` et `docs/etat.md`. Une décision de Robin va tout de
 - **Pas de chiffre en dur, pas de données fictives.** Une donnée manque → état vide « Pas branché ».
 - Next 16 : lire le guide concerné dans `node_modules/next/dist/docs/` avant d'écrire du code. Le middleware s'appelle `proxy.ts`.
 - Lecture des bases : côté serveur uniquement, avec un accès en lecture seule (rôle ou vues dédiées). La base d'Harmonie Yacht n'est pas encore accessible au connecteur Supabase de Claude.
-- Qonto : on lit les transactions déjà synchronisées par Harmonie Yacht (`bank_transactions`). Pas de 3ᵉ code Qonto.
+- Qonto : le tableau ne parle jamais à la banque. Il lit la compta d'Harmonie Group (projet Supabase `harmonie-group`, tables `compta_*`, rôle `groupe_lecture`, variable `COMPTA_LECTURE_URL` dans Vercel, Production seulement) ; c'est le comptable qui les remplit depuis le MCP Qonto.
 - La production (harmoniegroup.vercel.app) suit `main` depuis le 23/11/2026. L'ancienne branche `claude/vibrant-goodall-4hnpna` n'est plus utilisée : n'y pousse rien.
 - Le nom `harmonie-group` n'est pas accepté comme expéditeur dans les relais de Luma : utiliser `robin`.
 

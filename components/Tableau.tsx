@@ -1,7 +1,10 @@
-import { CalendarRange, Database, Lightbulb, Plug } from "lucide-react";
+import { CalendarRange, CircleAlert, Clock, Database, Lightbulb, Plug } from "lucide-react";
 import { libellePeriode, onglet, type Espace, type Indicateur, type Liste } from "@/lib/indicateurs";
 import { Ecosysteme } from "./Ecosysteme";
 import { iconeDe } from "./Icones";
+
+/** Valeur réelle d'une carte, lue côté serveur. Absente = « Pas branché ». */
+export type ValeurCarte = { etat: "ok"; texte: string; date: string; ancien?: boolean } | { etat: "erreur" };
 
 /**
  * Une carte = un chiffre, avec sa source et sa date. Tant que la source n'est pas branchée,
@@ -10,9 +13,10 @@ import { iconeDe } from "./Icones";
  * courbe (components/Sparkline), le graphique (components/GrapheBarres) et les listes (components/Lignes).
  */
 
-function Carte({ ind }: { ind: Indicateur }) {
+function Carte({ ind, valeur }: { ind: Indicateur; valeur?: ValeurCarte }) {
   const Icone = iconeDe(ind.id);
   const periode = libellePeriode(ind.periode);
+  const ok = valeur?.etat === "ok" ? valeur : null;
   return (
     <article className="vitre carte-levee flex flex-col rounded-[24px] p-4">
       <div className="flex items-center justify-between gap-2">
@@ -22,15 +26,36 @@ function Carte({ ind }: { ind: Indicateur }) {
           </span>
           <h3 className="truncate text-[13px] font-medium">{ind.titre}</h3>
         </div>
-        <span className="pastille shrink-0">
-          <Plug className="size-3" strokeWidth={2} aria-hidden />
-          Pas branché
-        </span>
+        {ok ? (
+          <span className="pastille shrink-0">
+            {ok.ancien ? <Clock className="size-3" strokeWidth={2} aria-hidden /> : <Database className="size-3" strokeWidth={2} aria-hidden />}
+            {ok.ancien ? "Relevé ancien" : "À jour"}
+          </span>
+        ) : valeur?.etat === "erreur" ? (
+          <span className="pastille shrink-0">
+            <CircleAlert className="size-3" strokeWidth={2} aria-hidden />
+            Lecture impossible
+          </span>
+        ) : (
+          <span className="pastille shrink-0">
+            <Plug className="size-3" strokeWidth={2} aria-hidden />
+            Pas branché
+          </span>
+        )}
       </div>
-      <p className="chiffre mt-4 text-[30px] font-semibold leading-none tracking-tight text-doux/60" aria-label="Pas encore de donnée">
-        —
-      </p>
-      <p className="mt-1.5 text-xs text-doux">{periode ?? "Total"}</p>
+      {ok ? (
+        <>
+          <p className="chiffre mt-4 text-[30px] font-semibold leading-none tracking-tight">{ok.texte}</p>
+          <p className="mt-1.5 text-xs text-doux">Relevé du {ok.date}</p>
+        </>
+      ) : (
+        <>
+          <p className="chiffre mt-4 text-[30px] font-semibold leading-none tracking-tight text-doux/60" aria-label="Pas encore de donnée">
+            —
+          </p>
+          <p className="mt-1.5 text-xs text-doux">{periode ?? "Total"}</p>
+        </>
+      )}
       <svg className="mt-3 h-9 w-full text-doux/40" viewBox="0 0 200 32" preserveAspectRatio="none" aria-hidden>
         <line x1="0" y1="24" x2="200" y2="24" stroke="currentColor" strokeWidth="1.5" strokeDasharray="3 5" vectorEffect="non-scaling-stroke" />
       </svg>
@@ -83,7 +108,7 @@ const TITRE_GRAPHE: Record<Espace, string> = {
   perso: "Dépenses perso par mois",
 };
 
-export function Tableau({ espace }: { espace: Espace }) {
+export function Tableau({ espace, valeurs = {} }: { espace: Espace; valeurs?: Record<string, ValeurCarte> }) {
   const o = onglet(espace);
   return (
     <div className="vitre-panneau rounded-[32px] p-4 sm:p-7">
@@ -103,7 +128,7 @@ export function Tableau({ espace }: { espace: Espace }) {
 
       <div className="mt-6 grid grid-cols-1 gap-3 min-[460px]:grid-cols-2 xl:grid-cols-3">
         {o.indicateurs.map((i) => (
-          <Carte key={i.id} ind={i} />
+          <Carte key={i.id} ind={i} valeur={valeurs[i.id]} />
         ))}
       </div>
 

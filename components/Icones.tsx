@@ -9,6 +9,7 @@ import {
   Handshake,
   Inbox,
   Landmark,
+  Percent,
   LayoutGrid,
   ListChecks,
   ReceiptText,
@@ -31,6 +32,7 @@ export const ICONE_ESPACE: Record<Espace, LucideIcon> = {
 /** Icône de chaque carte, par identifiant (lib/indicateurs.ts). */
 const PAR_ID: Record<string, LucideIcon> = {
   tresorerie: Landmark,
+  tva: Percent,
   "ca-total": TrendingUp,
   "ca-luma": Sparkles,
   "ca-hy": Anchor,

@@ -27,6 +27,7 @@ export type Onglet = { espace: Espace; href: string; nom: string; rubrique: stri
 const LUMA = "Supabase luma-agence";
 const HY = "Supabase Harmonie Yacht";
 const QONTO = "Qonto (synchronisé par Harmonie Yacht)";
+const COMPTA = "Compta Harmonie Group (Qonto)";
 
 export const ONGLETS: Onglet[] = [
   {
@@ -36,7 +37,8 @@ export const ONGLETS: Onglet[] = [
     nom: "Groupe",
     sousTitre: "Harmonie Group : un SIREN, un compte Qonto, deux activités.",
     indicateurs: [
-      { id: "tresorerie", titre: "Trésorerie Qonto", source: QONTO, detail: "financial_snapshots.bank_balance", periode: "jour", format: "euros" },
+      { id: "tresorerie", titre: "Trésorerie (compte principal)", source: COMPTA, detail: "compta_comptes.solde (compte principal Qonto)", periode: "jour", format: "euros", branche: true },
+      { id: "tva", titre: "TVA à reverser", source: COMPTA, detail: "compta_comptes.solde (compte TVA Qonto)", periode: "jour", format: "euros", branche: true },
       { id: "ca-total", titre: "Chiffre d'affaires total", source: "Luma + Harmonie Yacht", detail: "Somme des deux CA ci-dessous", periode: "annee", format: "euros" },
       { id: "ca-luma", titre: "CA Luma", source: LUMA, detail: "luma_v_stats.ca_encaisse_ttc", periode: "annee", format: "euros" },
       { id: "ca-hy", titre: "CA Harmonie Yacht", source: HY, detail: "revenues.amount", periode: "annee", format: "euros" },
