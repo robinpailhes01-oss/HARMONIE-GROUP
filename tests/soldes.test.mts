@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { choisirSoldes, fraicheur, type LigneCompte } from "../lib/soldes.ts";
+import { bornesAnnee, choisirSoldes, fraicheur, type LigneCompte } from "../lib/soldes.ts";
 
 const au = new Date("2026-11-26T07:53:26Z");
 const lignes: LigneCompte[] = [
@@ -28,4 +28,9 @@ test("aucun compte : rien n'est inventé", () => {
 test("fraîcheur : 36 h maximum", () => {
   assert.equal(fraicheur(au, new Date("2026-11-27T10:00:00Z")), "a-jour");
   assert.equal(fraicheur(au, new Date("2026-11-28T10:00:00Z")), "ancien");
+});
+
+test("année civile à Paris : le 31 décembre à 23 h 30 UTC est déjà l'année suivante à Paris", () => {
+  assert.deepEqual(bornesAnnee(new Date("2026-06-15T10:00:00Z")), { annee: 2026, debut: "2026-01-01", fin: "2026-12-31" });
+  assert.equal(bornesAnnee(new Date("2026-12-31T23:30:00Z")).annee, 2027);
 });

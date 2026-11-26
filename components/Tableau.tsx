@@ -4,7 +4,7 @@ import { Ecosysteme } from "./Ecosysteme";
 import { iconeDe } from "./Icones";
 
 /** Valeur réelle d'une carte, lue côté serveur. Absente = « Pas branché ». */
-export type ValeurCarte = { etat: "ok"; texte: string; date: string; ancien?: boolean } | { etat: "erreur" };
+export type ValeurCarte = { etat: "ok"; texte: string; legende: string; ancien?: boolean } | { etat: "erreur" };
 
 /**
  * Une carte = un chiffre, avec sa source et sa date. Tant que la source n'est pas branchée,
@@ -46,7 +46,7 @@ function Carte({ ind, valeur }: { ind: Indicateur; valeur?: ValeurCarte }) {
       {ok ? (
         <>
           <p className="chiffre mt-4 text-[30px] font-semibold leading-none tracking-tight">{ok.texte}</p>
-          <p className="mt-1.5 text-xs text-doux">Relevé du {ok.date}</p>
+          <p className="mt-1.5 text-xs text-doux">{ok.legende}</p>
         </>
       ) : (
         <>

@@ -10,6 +10,7 @@ import {
   Inbox,
   Landmark,
   Percent,
+  PiggyBank,
   LayoutGrid,
   ListChecks,
   ReceiptText,
@@ -33,6 +34,7 @@ export const ICONE_ESPACE: Record<Espace, LucideIcon> = {
 const PAR_ID: Record<string, LucideIcon> = {
   tresorerie: Landmark,
   tva: Percent,
+  "compte-courant": PiggyBank,
   "ca-total": TrendingUp,
   "ca-luma": Sparkles,
   "ca-hy": Anchor,
