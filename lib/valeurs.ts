@@ -22,7 +22,7 @@ export function valeursCompta(r: EtatCompta): Record<string, ValeurCarte> {
   if (t) v.tresorerie = t;
   if (tva) v.tva = tva;
   if (cc.nombre > 0) {
-    const sens = cc.solde >= 0 ? "L'entreprise lui doit" : "Elle doit à l'entreprise";
+    const sens = cc.solde === 0 ? "Compte soldé" : cc.solde > 0 ? "L'entreprise lui doit" : "Elle doit à l'entreprise";
     v["compte-courant"] = { etat: "ok", texte: euros2(Math.abs(cc.solde)), legende: `${sens} · dernier mouvement le ${cc.dernier ? jour(cc.dernier) : "—"}` };
   }
   const ca: ValeurCarte = { etat: "ok", texte: euros2(caLuma.ttc), legende: `TTC · ${caLuma.nombre} encaissement${caLuma.nombre > 1 ? "s" : ""} en ${caLuma.annee}` };
