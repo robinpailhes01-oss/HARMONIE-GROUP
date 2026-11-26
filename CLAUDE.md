@@ -19,7 +19,7 @@ Lis `contexte/decisions.md` et `docs/etat.md`. Une décision de Robin va tout de
 - Next 16 : lire le guide concerné dans `node_modules/next/dist/docs/` avant d'écrire du code. Le middleware s'appelle `proxy.ts`.
 - Lecture des bases : côté serveur uniquement, avec un accès en lecture seule (rôle ou vues dédiées). La base d'Harmonie Yacht n'est pas encore accessible au connecteur Supabase de Claude.
 - Qonto : on lit les transactions déjà synchronisées par Harmonie Yacht (`bank_transactions`). Pas de 3ᵉ code Qonto.
-- **La production du tableau de pilotage suit encore `claude/vibrant-goodall-4hnpna`** (pas `main`) : n'y pousse rien tant que Robin n'a pas basculé Vercel sur `main` (`docs/etat.md`).
+- La production (harmoniegroup.vercel.app) suit `main` depuis le 23/11/2026. L'ancienne branche `claude/vibrant-goodall-4hnpna` n'est plus utilisée : n'y pousse rien.
 - Le nom `harmonie-group` n'est pas accepté comme expéditeur dans les relais de Luma : utiliser `robin`.
 
 ## Qui possède quoi
@@ -31,7 +31,7 @@ Lis `contexte/decisions.md` et `docs/etat.md`. Une décision de Robin va tout de
 
 ## Fusions
 - Une PR par étape, sur une branche. Jamais de push direct sur `main`.
-- Contexte et docs : fusion libre si le build passe. Code qui touche Qonto ou l'argent : Robin teste la Preview avant.
+- Claude fusionne lui-même quand le build, les tests et la relecture passent (délégation de Robin, 23/11). Code qui touche Qonto ou l'argent : Robin reçoit le lien de la Preview et donne son OK avant la fusion.
 
 ## Avant de dire « fini »
 `npm run build` et `npm test` qui passent · captures desktop et mobile de chaque onglet touché, en clair et en sombre · chaque chiffre vérifié contre sa source, requête montrée · relecture par un sous-agent neuf · Preview testée par Robin · `docs/etat.md` réécrit.
