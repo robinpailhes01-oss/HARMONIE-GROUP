@@ -6,6 +6,7 @@ Les décisions propres à une activité restent dans son dépôt (`luma-context/
 
 | Date | Décision | Raison |
 |---|---|---|
+| 2026-11-26 | La compta (mouvements de toutes les banques, classement) vit dans le projet Supabase `harmonie-group` (`khmnmpyyjootyfiaywzp`, organisation LUMA AGENCE, créé le 23/11 par Robin). Tables préfixées `compta_`, séparées des tables `hg_` de l'équipe. Le tableau de pilotage lit cette base, pas la banque | Plusieurs banques à venir : tout regroupé, sans dépendre des bases de Luma ou d'Harmonie Yacht |
 | 2026-11-26 | TVA : l'entreprise collecte la TVA, à 20 % (Robin, 26/11). Le comptable facture à 20 % ; les cas particuliers (taux d'une nuit à bord, par exemple) sont à confirmer avec l'expert-comptable | Réponse de Robin ; le compte Qonto « TVA » va dans le même sens |
 | 2026-11-26 | Le MCP Qonto sert à deux choses : (1) afficher les chiffres sur le tableau d'Harmonie Group, avec d'autres comptes bancaires à venir, tout regroupé ; (2) créer un client, créer et envoyer une facture. Qonto = Harmonie Group + Luma, avec parfois du perso | Précision de Robin |
 | 2026-11-26 | Le MCP officiel de Qonto est branché sur l'environnement « Robin » (lecture confirmée : société HARMONIE GROUP, SAS, SIREN 991738733 ; deux comptes : principal et « TVA »). Le comptable n'aura accès qu'à une liste d'outils Qonto autorisés, les virements, cartes et liens de paiement restent hors de sa portée | Le MCP contient aussi des outils d'écriture sensibles : on ne les donne pas au comptable |
