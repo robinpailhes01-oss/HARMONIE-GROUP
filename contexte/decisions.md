@@ -6,6 +6,8 @@ Les décisions propres à une activité restent dans son dépôt (`luma-context/
 
 | Date | Décision | Raison |
 |---|---|---|
+| 2026-11-26 | Le MCP officiel de Qonto est branché sur l'environnement « Robin » (lecture confirmée : société HARMONIE GROUP, SAS, SIREN 991738733 ; deux comptes : principal et « TVA »). Le comptable n'aura accès qu'à une liste d'outils Qonto autorisés, les virements, cartes et liens de paiement restent hors de sa portée | Le MCP contient aussi des outils d'écriture sensibles : on ne les donne pas au comptable |
+| 2026-11-26 | Vision : tout centralisé dans Harmonie Group (le studio de Luma y arrivera plus tard) et tout piloté depuis Telegram par le manager. Aujourd'hui Luma et Harmonie Yacht restent dans des dépôts séparés, on avance étape par étape | Objectif final de Robin ; on ne casse rien en route |
 | 2026-11-23 | Base d'Harmonie Yacht : le comptable y accède par une vue en lecture seule sur `bank_transactions`, créée par la session Harmonie Yacht (pas de rôle Developer) | Le comptable ne voit que les mouvements bancaires, sans risque d'écriture |
 | 2026-11-23 | Le MCP Qonto doit permettre au comptable de lire ET de créer des devis et factures (envoi seulement après l'OK de Robin) | Précision de Robin ; rappel : virements, cartes et liens de paiement restent interdits |
 | 2026-11-23 | Numérotation des factures : deux suites continues, `LUMA-AAAA-001` et `HY-AAAA-001` (à confronter à la numérotation de Qonto avant de figer) | Chaque activité se lit seule ; la loi veut une suite chronologique sans trou |
