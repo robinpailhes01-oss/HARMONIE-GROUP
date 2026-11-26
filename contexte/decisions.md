@@ -6,6 +6,8 @@ Les décisions propres à une activité restent dans son dépôt (`luma-context/
 
 | Date | Décision | Raison |
 |---|---|---|
+| 2026-11-26 | TVA : l'entreprise collecte la TVA, à 20 % (Robin, 26/11). Le comptable facture à 20 % ; les cas particuliers (taux d'une nuit à bord, par exemple) sont à confirmer avec l'expert-comptable | Réponse de Robin ; le compte Qonto « TVA » va dans le même sens |
+| 2026-11-26 | Le MCP Qonto sert à deux choses : (1) afficher les chiffres sur le tableau d'Harmonie Group, avec d'autres comptes bancaires à venir, tout regroupé ; (2) créer un client, créer et envoyer une facture. Qonto = Harmonie Group + Luma, avec parfois du perso | Précision de Robin |
 | 2026-11-26 | Le MCP officiel de Qonto est branché sur l'environnement « Robin » (lecture confirmée : société HARMONIE GROUP, SAS, SIREN 991738733 ; deux comptes : principal et « TVA »). Le comptable n'aura accès qu'à une liste d'outils Qonto autorisés, les virements, cartes et liens de paiement restent hors de sa portée | Le MCP contient aussi des outils d'écriture sensibles : on ne les donne pas au comptable |
 | 2026-11-26 | Vision : tout centralisé dans Harmonie Group (le studio de Luma y arrivera plus tard) et tout piloté depuis Telegram par le manager. Aujourd'hui Luma et Harmonie Yacht restent dans des dépôts séparés, on avance étape par étape | Objectif final de Robin ; on ne casse rien en route |
 | 2026-11-23 | Robin délègue les fusions : Claude fusionne lui-même ses PR quand build, tests et relecture passent. Ce qui touche l'argent, Qonto, les paiements ou les clients garde l'OK de Robin sur la Preview avant fusion | Robin n'a plus le temps de fusionner ; l'argent et les clients restent protégés |
