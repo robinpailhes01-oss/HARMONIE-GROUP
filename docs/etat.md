@@ -21,6 +21,14 @@
 - Relais QG n°2 (ac7b0e4d) : champ MRR, règle « clients chauds », échéancier des paiements.
 - Valeur d'une heure de Robin : non réglée (repère : 225 €/h sur 2 affaires Luma, 4 h).
 
+## Décidé (Robin, 26/11/2026)
+| Sujet | Décision |
+|---|---|
+| Supabase | Rester gratuit pour l'instant (2 comptes). Regrouper les 3 projets coûterait ≈ 45 $/mois (Pro) : à revoir quand Harmonie Yacht passera en Pro. |
+| Qonto | Appartient à Harmonie Group : copie et classement Luma / Harmonie Yacht / Perso dans la base du groupe uniquement. |
+| Organisation des agents | Activités indépendantes en dessous, tout centralisé au-dessus : un **Directeur général** (point d'entrée Telegram unique) → managers par activité. |
+| Jarvis | Simple test, abandonné. Le Directeur général part de zéro. |
+
 ## Décidé (Robin, 22/11/2026)
 | Sujet | Décision |
 |---|---|
