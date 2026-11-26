@@ -27,3 +27,12 @@ export function fraicheur(au: Date, now = new Date()): "a-jour" | "ancien" {
 export function libelleDate(au: Date): string {
   return new Intl.DateTimeFormat("fr-FR", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit", timeZone: "Europe/Paris" }).format(au);
 }
+
+/** Année civile en cours à Paris : « 2026 », du 2026-01-01 au 2026-12-31 (décision de Robin, 22/11/2026). */
+export function bornesAnnee(now = new Date()) {
+  const annee = Number(new Intl.DateTimeFormat("fr-FR", { year: "numeric", timeZone: "Europe/Paris" }).format(now));
+  return { annee, debut: `${annee}-01-01`, fin: `${annee}-12-31` };
+}
+
+export type CompteCourant = { solde: number; dernier: string | null; nombre: number };
+export type CaLuma = { ttc: number; nombre: number; annee: number };

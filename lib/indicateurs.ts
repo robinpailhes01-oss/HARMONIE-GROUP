@@ -39,8 +39,9 @@ export const ONGLETS: Onglet[] = [
     indicateurs: [
       { id: "tresorerie", titre: "Trésorerie (compte principal)", source: COMPTA, detail: "compta_comptes.solde (compte principal Qonto)", periode: "jour", format: "euros", branche: true },
       { id: "tva", titre: "TVA à reverser", source: COMPTA, detail: "compta_comptes.solde (compte TVA Qonto)", periode: "jour", format: "euros", branche: true },
+      { id: "compte-courant", titre: "Compte courant (Mme Cadot)", source: COMPTA, detail: "compta_mouvements (compte courant) : entrées moins sorties", format: "euros", branche: true },
       { id: "ca-total", titre: "Chiffre d'affaires total", source: "Luma + Harmonie Yacht", detail: "Somme des deux CA ci-dessous", periode: "annee", format: "euros" },
-      { id: "ca-luma", titre: "CA Luma", source: LUMA, detail: "luma_v_stats.ca_encaisse_ttc", periode: "annee", format: "euros" },
+      { id: "ca-luma", titre: "CA Luma (encaissé TTC)", source: COMPTA, detail: "compta_mouvements (ventes Luma), par date d'encaissement", periode: "annee", format: "euros", branche: true },
       { id: "ca-hy", titre: "CA Harmonie Yacht", source: HY, detail: "revenues.amount", periode: "annee", format: "euros" },
       { id: "depenses-perso", titre: "Dépenses perso", source: QONTO, detail: "Mouvements classés « Perso » par l'agent comptable", periode: "annee", format: "euros" },
       { id: "a-classer", titre: "Mouvements à classer", source: QONTO, detail: "Mouvements pas encore rangés par l'agent comptable", format: "nombre" },
@@ -57,7 +58,7 @@ export const ONGLETS: Onglet[] = [
     nom: "Luma",
     sousTitre: "L'agence IA. Le détail reste dans le studio.",
     indicateurs: [
-      { id: "ca-encaisse", titre: "CA encaissé", source: LUMA, detail: "luma_v_stats.ca_encaisse_ttc", periode: "annee", format: "euros" },
+      { id: "ca-encaisse", titre: "CA encaissé (TTC)", source: COMPTA, detail: "compta_mouvements (ventes Luma), par date d'encaissement", periode: "annee", format: "euros", branche: true },
       { id: "ca-signe", titre: "CA signé", source: LUMA, detail: "luma_v_stats.ca_signe_ttc", periode: "annee", format: "euros" },
       { id: "clients", titre: "Clients signés", source: LUMA, detail: "luma_v_stats.clients_signes", format: "nombre" },
       { id: "actions-dues", titre: "Actions dues", source: LUMA, detail: "luma_v_actions_dues", format: "nombre" },

@@ -7,6 +7,7 @@
 - MCP Qonto branché ; liste d'outils autorisés pour le comptable à ajouter à `comptable.md` (lecture, brouillons de factures, justificatifs ; jamais virements, cartes, liens de paiement).
 - Base compta dans le projet Supabase `harmonie-group` : tables `compta_comptes`, `compta_mouvements`, `compta_regles_marchands` (migrations 003 à 005), rôle `groupe_lecture` (lecture seule). Les 2 comptes Qonto y sont, avec leur solde daté.
 - PR « soldes » : les cartes « Trésorerie (compte principal) » et « TVA à reverser » de l'onglet Groupe lisent `compta_comptes`. Tout le reste reste « Pas branché ». Les virements internes principal ↔ TVA ne comptent jamais dans le CA (Qonto les range à tort en « Chiffre d'affaires »).
+- Compte courant de Mme Cadot et CA Luma (encaissé, TTC, année civile) : mouvements enregistrés dans `compta_mouvements` (colonne `nature`, migration 006) et affichés sur les onglets Groupe et Luma (PR suivante). CA Harmonie Yacht, SumUp, Stripe, Mollie : pas encore classés ; en attente des réponses de Robin.
 - Factures LAYONN INVEST : `F-2026-011` (480 €) finalisée et payée ; avoir `A-2026-001` + `F-2026-012` (490 €) créés, mais à vérifier (voir plus bas).
 
 ## Où on en est
