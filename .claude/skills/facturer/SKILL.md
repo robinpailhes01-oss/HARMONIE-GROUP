@@ -16,7 +16,7 @@ Tu prépares, Robin valide. Rien n'est envoyé sans son OK.
    - **Harmonie Yacht** : les mots de Robin (sortie en mer, nuit insolite…). Taux de TVA des nuits à bord : à confirmer avec l'expert-comptable.
 5. **Montants** : TVA à 20 % (collectée). Vérifie que HT + TVA = TTC et que le TTC égale le virement.
 6. **Numéro** : la suite unique de Qonto `F-AAAA-NNN` (dernière + 1, vérifiée avec `list_client_invoices` triée par numéro). Les avoirs : `A-AAAA-NNN`.
-7. **Dates** : émission = le jour ; échéance +15 jours ; paiement par virement sur le compte principal.
+7. **Dates** : émission = le jour **où tu prépares la facture, donc prépare-la dès que le virement arrive**. Si le paiement est plus ancien que la date d'émission (facture en retard), dis-le à Robin avant de finaliser : une facture finalisée ne se redate pas, et la suite des numéros doit rester dans l'ordre des dates. Échéance +15 jours ; paiement par virement sur le compte principal.
 8. **Mentions** : **aucune pénalité de retard ni indemnité forfaitaire** (décision de Robin, 26/11/2026). Ne les ajoute pas.
 9. **Brouillon seulement** (`status: draft`).
 10. **Double contrôle** : un sous-agent neuf relit (montants, numéro, client, libellé). Un sous-agent ne peut pas en lancer un autre : c'est celui qui t'appelle qui le fait.
