@@ -8,7 +8,7 @@
 - Base compta dans le projet Supabase `harmonie-group` : tables `compta_comptes`, `compta_mouvements`, `compta_regles_marchands` (migrations 003 à 005), rôle `groupe_lecture` (lecture seule). Les 2 comptes Qonto y sont, avec leur solde daté.
 - PR « soldes » : les cartes « Trésorerie (compte principal) » et « TVA à reverser » de l'onglet Groupe lisent `compta_comptes`. Tout le reste reste « Pas branché ». Les virements internes principal ↔ TVA ne comptent jamais dans le CA (Qonto les range à tort en « Chiffre d'affaires »).
 - Compte courant de Mme Cadot et CA Luma (encaissé, TTC, année civile) : mouvements enregistrés dans `compta_mouvements` (colonne `nature`, migration 006) et affichés sur les onglets Groupe et Luma (PR suivante). CA Harmonie Yacht, SumUp, Stripe, Mollie : pas encore classés ; en attente des réponses de Robin.
-- Factures LAYONN INVEST : `F-2026-011` (480 €, V2 Céleste) finalisée et payée : **bonne**. `F-2026-013` (450 € TTC, V1 Céleste) en brouillon, à valider par Robin. **À défaire** : avoir `A-2026-001` (−490 €) et facture `F-2026-012` (490 €), faits à tort (la facture F-2025-001 « prospection » était bonne) ; voir `contexte/decisions.md` du 26/11.
+- Factures LAYONN INVEST : `F-2026-011` (480 €, V2 Céleste) finalisée et payée : **bonne**. `F-2026-013` (450 € TTC, V1 Céleste) finalisée, payée au 03/11/2026 (versement Mollie de 441,20 €), PDF envoyé à Robin. **À défaire** : avoir `A-2026-001` (−490 €) et facture `F-2026-012` (490 €), faits à tort (la facture F-2025-001 « prospection » était bonne) ; voir `contexte/decisions.md` du 26/11.
 
 ## Où on en est
 - **Contexte fusionné** dans `main` le 23/11 (PR #2). La production du tableau de pilotage suit `main`.

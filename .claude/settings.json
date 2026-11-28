@@ -1,0 +1,30 @@
+{
+  "permissions": {
+    "ask": [
+      "mcp__Qonto__change_client_invoice_status",
+      "mcp__Qonto__mark_client_invoice_as_paid",
+      "mcp__Qonto__send_client_invoice",
+      "mcp__Qonto__send_quote",
+      "mcp__Qonto__create_credit_note",
+      "mcp__Qonto__remove_transaction_attachment"
+    ],
+    "deny": [
+      "mcp__Qonto__create_transfer_request",
+      "mcp__Qonto__create_multi_transfer_request",
+      "mcp__Qonto__approve_request",
+      "mcp__Qonto__decline_request",
+      "mcp__Qonto__create_card",
+      "mcp__Qonto__update_card",
+      "mcp__Qonto__change_card_status",
+      "mcp__Qonto__create_payment_link",
+      "mcp__Qonto__create_membership",
+      "mcp__Qonto__delete_client",
+      "mcp__Qonto__delete_client_invoice",
+      "mcp__Qonto__delete_quote",
+      "mcp__Qonto__change_supplier_invoice_status",
+      "mcp__Qonto__create_cash_flow_category",
+      "mcp__Qonto__modify_transaction_cash_flow_category",
+      "mcp__Qonto__create_product"
+    ]
+  }
+}
